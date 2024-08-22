@@ -197,3 +197,7 @@ a.custom-card:hover {
   display:flex;
   align-items: center;
 }
+
+.auto {
+  width: 250px;
+}
