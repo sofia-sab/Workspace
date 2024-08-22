@@ -17,13 +17,16 @@
 </head>
 
 <body>
-  <main class="mt-5">
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+  <div id="login">
+    <h1>Inicia sesión</h1><br>
+    <form onsubmit="login(event)">
+      <div>
+        Usuario<input id="username" type="text" name="usuario" minlength="1" required><br><br>
+        Contraseña<input id="password" type="password" name="contraseña" minlength="1" required><br><br>
       </div>
-    </div>
-  </main>
+      <button id="inicio">Ingresar</button>
+    </form>
+  </div>
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">
