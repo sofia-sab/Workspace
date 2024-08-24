@@ -22,7 +22,7 @@ fetch(data)
             <div class="contenedor">    
             <img class="auto" src="${product.image}" alt="${product.name}">
                 <div class="informacion">
-                    <p class="precio">${product.name}</p>
+                    <p class="negrita">${product.name}</p>
                     <p>${product.description}</p>
                     <p>Vendidos: ${product.soldCount}</p>
                 </div>

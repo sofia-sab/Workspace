@@ -218,15 +218,19 @@ a.custom-card:hover {
 }
 
 .negrita{
+  font-size: larger;
   font-weight: bold;
 }
 
 .precio {
+  font-size: larger;
+  margin-left: 130px;
   font-weight: bold;
 }
 .centrado {
   text-align: center;
 }
+
 form input {
   width: 100%;
   padding: 10px;
@@ -237,6 +241,15 @@ form input {
 }
 
 #inicio{
-  background-color: darksalmon;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #f767e3;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  background-color:rgb(245, 143, 211);
+}
 
+body{
+  font-family:Arial, Helvetica, sans-serif;
 }
