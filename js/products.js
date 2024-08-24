@@ -1,11 +1,3 @@
-// const data = "json/autos.json";
-// const contenedorJson = document.getElementById("contenedorJson");
-
-// function infoAutos(products){
-//     contenedorJson.innerHTML = '';
-//     for (const product of products)
-//     contenedorJson.innerHTML+='<p>{product.name} <br> ${}'
-// }
 
 const data = 'json/autos.json'; 
 
@@ -27,12 +19,15 @@ fetch(data)
 
             // Agregar contenido al div
             productoDiv.innerHTML = `
-                <img src="${product.image}" alt="${product.name}">
+            <div class="contenedor">    
+            <img class="auto" src="${product.image}" alt="${product.name}">
                 <div class="informacion">
                     <p class="negrita">${product.name}</p>
                     <p>${product.description}</p>
                     <p>Vendidos: ${product.soldCount}</p>
                 </div>
+            </div>
+            <p class="precio">${product.currency} ${product.cost}</p>
             `;
 
             // Añadir el div al contenedor

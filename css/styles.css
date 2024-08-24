@@ -204,7 +204,8 @@ a.custom-card:hover {
 }
 
 .auto {
-  width: 250px;
+  width: 350px;
+  padding: 7px;
 }
 
 .centrado{
@@ -216,14 +217,19 @@ a.custom-card:hover {
   border-radius: 15px black ; 
   padding: 15px ;
   background-color: #cfd4d3;
-  width: 1000px;
+  width: 1000px; 
 }
 
 .negrita{
-   font-weight: bold;
+  font-weight: bold;
 }
 
 #inicio{
   background-color: darksalmon;
+
+}
+
+.precio{
+  font-weight: bold;
 
 }
