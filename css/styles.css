@@ -191,7 +191,8 @@ a.custom-card:hover {
 }
 
 .auto {
-  width: 250px;
+  width: 350px;
+  padding: 7px;
 }
 
 #login{
@@ -209,11 +210,11 @@ a.custom-card:hover {
   border-radius: 15px rgb(0, 0, 0) ; 
   padding: 15px ;
   background-color: #cfd4d3;
-  width: 1000px;
+  width: 1000px; 
 }
 
 .negrita{
-   font-weight: bold;
+  font-weight: bold;
 }
 
 form input {
@@ -226,11 +227,6 @@ form input {
 }
 
 #inicio{
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #e65fc4;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-  background-color: rgb(255, 179, 226);
+  background-color: darksalmon;
+
 }
