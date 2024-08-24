@@ -190,31 +190,24 @@ a.custom-card:hover {
   color: orange;
 }
 
-#login {
-  text-align: center;
-  display: flex;
-  justify-content: center; /* Centrar horizontalmente */
-  align-items: center; /* Centrar verticalmente */
-  height: 50vh; /* Altura completa de la pantalla */
-}
-
-.contenedor {
-  display:flex;
-  
-}
-
 .auto {
   width: 350px;
   padding: 7px;
 }
 
-.centrado{
-  text-align: center;
+#login{
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
 }
 
 .informacion{ 
   margin: 15px;
-  border-radius: 15px black ; 
+  border-radius: 15px rgb(0, 0, 0) ; 
   padding: 15px ;
   background-color: #cfd4d3;
   width: 1000px; 
@@ -224,12 +217,16 @@ a.custom-card:hover {
   font-weight: bold;
 }
 
-#inicio{
-  background-color: darksalmon;
-
+form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
 }
 
-.precio{
-  font-weight: bold;
+#inicio{
+  background-color: darksalmon;
 
 }
