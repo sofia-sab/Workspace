@@ -1,5 +1,5 @@
 
-const data = 'json/autos.json'; 
+const data = 'https://japceibal.github.io/emercado-api/cats_products/101.json'; 
 
 fetch(data)
     .then(response => {
