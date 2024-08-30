@@ -20,11 +20,11 @@ fetch(data)
             // Agregar contenido al div
             productoDiv.innerHTML = `
             <div class="container-fluid">
-           
-            <div class= "col-xxl-2 col-md-6 col-xs-6">
+            <div class="row">
+            <div class= "col-xxl-3 col-md-6 col-xs-6 col-lg-4">
             <img class="auto" src="${product.image}" alt="${product.name}">
             </div>
-            <div class= "col-xxl-10 col-md-6 col-xs-6">
+            <div class= "col-xxl-9 col-md-6 col-xs-6 col-lg-8">
                 <div class="informacion">
                     <p class="negrita">${product.name}</p>
                     <p>${product.description}</p>
