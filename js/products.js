@@ -19,13 +19,19 @@ fetch(data)
 
             // Agregar contenido al div
             productoDiv.innerHTML = `
-            <div class="contenedor">    
+            <div class="container-fluid">
+           
+            <div class= "col-xxl-2 col-md-6 col-xs-6">
             <img class="auto" src="${product.image}" alt="${product.name}">
+            </div>
+            <div class= "col-xxl-10 col-md-6 col-xs-6">
                 <div class="informacion">
                     <p class="negrita">${product.name}</p>
                     <p>${product.description}</p>
                     <p>Vendidos: ${product.soldCount}</p>
                 </div>
+            </div>
+            
             </div>
             <p class="precio">${product.currency} ${product.cost}</p>
             `;
