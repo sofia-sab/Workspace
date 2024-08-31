@@ -199,16 +199,6 @@ a.custom-card:hover {
   display: flex;
 } */
 
-#login{
-  max-width: 400px;
-  margin: 50px auto;
-  padding: 20px;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
-}
-
 .informacion{ 
   margin: 15px;
   border-radius: 15px rgb(0, 0, 0) ; 
@@ -231,13 +221,23 @@ a.custom-card:hover {
   text-align: center;
 }
 
-.form {
-  width: 100%;
+#login {
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  max-width: 400px;
+  margin: 50px auto;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+input {
+  width: 100%;
+  padding: 10px;
   box-sizing: border-box;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 #inicio{
