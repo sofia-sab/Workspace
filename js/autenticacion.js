@@ -1,6 +1,7 @@
 function checkAuthentication() {
-    if (localStorage.getItem('loggedIn') !== 'true') {
-        window.location.href = 'login.html'; // Redirige a la página de inicio de sesión
+    let username=localStorage.getItem('persona');
+    if (localStorage.getItem('persona') !== username) {
+        window.location.href = 'login.html'; 
     }
 }
 
