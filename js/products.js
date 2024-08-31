@@ -29,11 +29,12 @@ fetch(data)
                     <p class="negrita">${product.name}</p>
                     <p>${product.description}</p>
                     <p>Vendidos: ${product.soldCount}</p>
+                    <p class="precio">${product.currency} ${product.cost}</p>
                 </div>
             </div>
             
             </div>
-            <p class="precio">${product.currency} ${product.cost}</p>
+            
             `;
 
             // Añadir el div al contenedor
