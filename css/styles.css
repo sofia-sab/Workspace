@@ -191,8 +191,8 @@ a.custom-card:hover {
 }
 
 .auto {
-  width: 350px;
-  padding: 7px;
+  width: 100%;
+  padding: 2%;
 }
 
 /* .container {
@@ -200,11 +200,10 @@ a.custom-card:hover {
 } */
 
 .informacion{ 
-  margin: 15px;
-  border-radius: 15px rgb(0, 0, 0) ; 
-  padding: 15px ;
+  margin: 2%;
+  padding: 1%;
   background-color: #cfd4d3;
-  /* width: 100%;  */
+  width: 100%;
 }
 
 .negrita{
@@ -214,8 +213,9 @@ a.custom-card:hover {
 
 .precio {
   font-size: larger;
-  margin-left: 130px;
+  text-align: right;
   font-weight: bold;
+
 }
 .centrado {
   text-align: center;
@@ -252,4 +252,8 @@ input {
 
 body{
   font-family:Arial, Helvetica, sans-serif;
+}
+
+.row {
+  display: flex;
 }
