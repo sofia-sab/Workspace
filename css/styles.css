@@ -195,9 +195,9 @@ a.custom-card:hover {
   padding: 7px;
 }
 
-.container {
+/* .container {
   display: flex;
-}
+} */
 
 #login{
   max-width: 400px;
@@ -231,7 +231,7 @@ a.custom-card:hover {
   text-align: center;
 }
 
-form input {
+.form {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;

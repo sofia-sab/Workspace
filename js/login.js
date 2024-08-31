@@ -1,16 +1,16 @@
+document.addEventListener('DOMContentLoaded', ()=>{
+    document.getElementById('inicio').addEventListener('click', ()=> {
 
-function login(event) {
-    event.preventDefault(); 
-    
-    var username = document.getElementById('username').value; 
-    var password = document.getElementById('password').value; 
-
-    if (username && password) { 
+        var username = document.getElementById('username').value; 
+        var password = document.getElementById('password').value; 
         
-        localStorage.setItem('persona', username); 
-        document.getElementById('userShow').textContent='Hola! ' + localStorage('persona');
-        window.location.href = "index.html"; 
-    } else { 
-        alert('Por favor, complete ambos campos.'); 
-    } 
-}
+
+        if(username && password){
+            window.location.href='index.html';
+            localStorage.setItem('persona', username);
+        }  else {
+            alert('Por favor, complete ambos campos.');
+        }
+
+    })
+})
