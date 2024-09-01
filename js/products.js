@@ -13,31 +13,30 @@ fetch(data)
         contenedorJson.innerHTML = ''; 
 
         data.products.forEach(product => {
-            // Crear un nuevo div para cada producto
+            
             const productoDiv = document.createElement('div');
             productoDiv.className = 'producto';
 
-            // Agregar contenido al div
+            
             productoDiv.innerHTML = `
-            <div class="container-fluid">
+        <div class="container-fluid">
             <div class="row">
-            <div class= "col-xxl-3 col-md-6 col-xs-6 col-lg-4">
-            <img class="auto" src="${product.image}" alt="${product.name}">
-            </div>
-            <div class= "col-xxl-9 col-md-6 col-xs-6 col-lg-8">
-                <div class="informacion">
-                    <p class="negrita">${product.name}</p>
-                    <p>${product.description}</p>
-                    <p>Vendidos: ${product.soldCount}</p>
-                    <p class="precio">${product.currency} ${product.cost}</p>
+                <div class= "col-xxl-3 col-md-6 col-xs-6 col-lg-4">
+                    <img class="auto" src="${product.image}" alt="${product.name}">
                 </div>
-            </div>
+                <div class= "col-xxl-9 col-md-6 col-xs-6 col-lg-8">
+                    <div class="informacion">
+                        <p class="negrita">${product.name}</p>
+                        <p>${product.description}</p>
+                        <p>Vendidos: ${product.soldCount}</p>
+                        <p class="precio">${product.currency} ${product.cost}</p>
+                    </div>
+                </div>
             
             </div>
-            
-            `;
+        </div>`;
 
-            // Añadir el div al contenedor
+            
             contenedorJson.appendChild(productoDiv);
         });
     })
