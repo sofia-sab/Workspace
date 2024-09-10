@@ -1,11 +1,33 @@
+function sortCategories(criteria, array){
+    let result = [];
+    if (criteria === ORDER_ASC_BY_NAME)
+    {
+        result = array.sort(function(a, b) {
+            if ( a.name < b.name ){ return -1; }
+            if ( a.name > b.name ){ return 1; }
+            return 0;
+        });
+    }else if (criteria === ORDER_DESC_BY_NAME){
+        result = array.sort(function(a, b) {
+            if ( a.name > b.name ){ return -1; }
+            if ( a.name < b.name ){ return 1; }
+            return 0;
+        })};
+    }
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
     const catID = localStorage.getItem('catID'); 
+
+
+    
 
     if (!catID) {
         console.error('No se encontró el identificador de categoría en localStorage.');
         return; 
     }
-   
+
 const url = `https://japceibal.github.io/emercado-api/cats_products/${catID}.json`;
 
     fetch(url)
