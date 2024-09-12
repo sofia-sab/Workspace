@@ -1,3 +1,40 @@
+
+
+const ORDER_ASC_BY_COST = ">$";
+const ORDER_DESC_BY_COST = "$<";
+const ORDER_BY_PROD_COUNT = "Cant.";
+let currentProductsArray = [];
+let currentSortCriteria = undefined;
+let minCost = undefined;
+let maxCost = undefined;
+
+
+function sortProducts(criteria, array){
+    let result = [];
+    if (criteria === ORDER_ASC_BY_COST) {
+    result = array.sort(function(a, b) {
+
+    return parseInt(a.cost) - parseInt(b.cost);
+});
+    } else if (criteria === ORDER_DESC_BY_COST) {
+    result = array.sort(function(a, b) {
+
+    return parseInt(b.cost) - parseInt(a.cost);
+});
+    }else if (criteria === ORDER_BY_PROD_COUNT){
+    result = array.sort(function(a, b) {
+        let aCount = parseInt(a.soldCount);
+        let bCount = parseInt(b.soldCount);
+
+    return parseInt(b.soldCount) - parseInt(a.soldCount);   
+    }) 
+    }else {
+    
+    return result;
+
+}};
+
+
 document.addEventListener('DOMContentLoaded', function() {
     const catID = localStorage.getItem('catID'); 
 
@@ -42,6 +79,19 @@ const url = `https://japceibal.github.io/emercado-api/cats_products/${catID}.jso
                 
                 contenedorJson.appendChild(productoDiv);
             });
+
+            document.getElementById("sortAsc").addEventListener("click", function(){
+                sortProducts(ORDER_ASC_BY_COST);
+            });
+        
+            document.getElementById("sortDesc").addEventListener("click", function(){
+                sortProducts(ORDER_DESC_BY_COST);
+            });
+        
+            document.getElementById("sortByCount").addEventListener("click", function(){
+                sortProducts(ORDER_BY_PROD_COUNT);
+            });
+        
         })
         .catch(error => {
             console.error('Hubo un problema con la solicitud:', error);
