@@ -63,11 +63,15 @@ function showProductsList(products){
                 </div>
             </div>
         </div>`;
-        
+      
+          productoDiv.addEventListener('click', () => {
+            localStorage.setItem('productID', products.id);
+            window.location = 'product-info.html';
+        });
+         
         contenedorJson.appendChild(productoDiv);
     });
 }
-
 
 document.addEventListener('DOMContentLoaded', function() {
     const catID = localStorage.getItem('catID'); 
