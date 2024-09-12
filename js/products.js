@@ -35,8 +35,15 @@ function sortProducts(criteria){
 function showProductsList(products){
     const contenedorJson = document.getElementById('contenedorJson');
     contenedorJson.innerHTML = '';
+        if (minCost !== undefined || maxCost !== undefined) {
+            products = products.filter(product => {
+                let cost = parseInt(product.cost);
+                return (minCost === undefined || cost >= minCost) &&
+                    (maxCost === undefined || cost <= maxCost);
+            });
+        }  
 
-    products.forEach(product => {
+     products.forEach(product => {
         const productoDiv = document.createElement('div');
         productoDiv.className = 'producto';
         
@@ -94,6 +101,38 @@ document.addEventListener('DOMContentLoaded', function() {
         
             document.getElementById("sortByCount").addEventListener("click", function(){
                 sortProducts(ORDER_BY_PROD_COUNT);
+            });
+
+            document.getElementById("clearRangeFilter").addEventListener("click", function(){
+                document.getElementById("rangeFilterCostMin").value = "";
+                document.getElementById("rangeFilterCostMax").value = "";
+        
+                minCost = undefined;
+                maxCost = undefined;
+        
+                showProductsList(currentProductsArray);
+            });
+        
+            document.getElementById("rangeFilterCost").addEventListener("click", function(){
+                
+                minCost = document.getElementById("rangeFilterCostMin").value;
+                maxCost = document.getElementById("rangeFilterCostMax").value;
+        
+                if ((minCost != undefined) && (minCost != "") && (parseInt(minCost)) >= 0){
+                    minCost = parseInt(minCost);
+                }
+                else{
+                    minCost = undefined;
+                }
+        
+                if ((maxCost != undefined) && (maxCost != "") && (parseInt(maxCost)) >= 0){
+                    maxCost = parseInt(maxCost);
+                }
+                else{
+                    maxCost = undefined;
+                }
+        
+                showProductsList(currentProductsArray);
             });
         });
     })
