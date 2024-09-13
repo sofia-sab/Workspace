@@ -38,12 +38,11 @@ function showProductsList(products){
         if (minCost !== undefined || maxCost !== undefined) {
             products = products.filter(product => {
                 let cost = parseInt(product.cost);
-                return (minCost === undefined || cost >= minCost) &&
-                    (maxCost === undefined || cost <= maxCost);
+                return (minCost === undefined || cost >= minCost) && (maxCost === undefined || cost <= maxCost);
             });
         }  
 
-     products.forEach(product => {
+    products.forEach(product => {
         const productoDiv = document.createElement('div');
         productoDiv.className = 'producto';
         
@@ -64,8 +63,8 @@ function showProductsList(products){
             </div>
         </div>`;
       
-          productoDiv.addEventListener('click', () => {
-            localStorage.setItem('productID', products.id);
+        productoDiv.addEventListener('click', () => {
+            localStorage.setItem('productID', JSON.stringify(products.id)); //AYUDA
             window.location = 'product-info.html';
         });
          
