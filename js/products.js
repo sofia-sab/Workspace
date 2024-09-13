@@ -64,7 +64,7 @@ function showProductsList(products){
         </div>`;
       
         productoDiv.addEventListener('click', () => {
-            localStorage.setItem('productID', JSON.stringify(products.id)); //AYUDA
+            localStorage.setItem('productID', JSON.stringify(products.id)); //
             window.location = 'product-info.html';
         });
          
