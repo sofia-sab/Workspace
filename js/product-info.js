@@ -7,24 +7,26 @@ function showProductInfo() {
     if (currentProduct) {
         
         let htmlContentToAppend = `
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-xxl-3 col-md-6 col-xs-6 col-lg-4">
-                        <img class="auto" src="${currentProduct.images[0]}" alt="${currentProduct.name}">
-                        <img class="auto" src="${currentProduct.images[1]}" alt="${currentProduct.name}">
-                        <img class="auto" src="${currentProduct.images[2]}" alt="${currentProduct.name}">
-                        <img class="auto" src="${currentProduct.images[3]}" alt="${currentProduct.name}">
-                    </div>
-                    <div class="col-xxl-9 col-md-6 col-xs-6 col-lg-8">
-                        <div class="informacion">
-                            <p class="negrita">${currentProduct.name}</p>
-                            <p>${currentProduct.description}</p>
-                            <p>Vendidos: ${currentProduct.soldCount}</p>
-                            <p class="precio">${currentProduct.currency} ${currentProduct.cost}</p>
-                        </div>
-                    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xxl-3 col-md-6 col-xs-6 col-lg-4">
+                <img class="auto" src="${currentProduct.images[0]}" alt="${currentProduct.name}">
+            </div>
+            <div class="col-xxl-9 col-md-6 col-xs-6 col-lg-8">
+                <div class="informacion">
+                    <p class="negrita">${currentProduct.name}</p>
+                    <p>${currentProduct.description}</p>
+                    <p>Vendidos: ${currentProduct.soldCount}</p>
+                    <p class="precio">${currentProduct.currency} ${currentProduct.cost}</p>
                 </div>
-            </div>`;
+                <div class="img-adicional">
+                    <img class="auto" src="${currentProduct.images[1]}" alt="${currentProduct.name}">
+                    <img class="auto" src="${currentProduct.images[2]}" alt="${currentProduct.name}">
+                    <img class="auto" src="${currentProduct.images[3]}" alt="${currentProduct.name}">
+                </div>
+            </div>
+        </div>
+    </div>`;
         
         document.getElementById("product-info-container").innerHTML = htmlContentToAppend;
     } else {
