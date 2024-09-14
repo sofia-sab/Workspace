@@ -1,41 +1,44 @@
-let currentProductArray = [];
+let currentProduct = {};  
 const id = localStorage.getItem('productID');
 const url = `https://japceibal.github.io/emercado-api/products/${id}.json`;
 
 
-function showProductInfo(){
-    let htmlContentToAppend = "";
-    for(let i = 0; i < currentProductArray.length; i++){
-        let product = currentProductArray[i];
+function showProductInfo() {
+    if (currentProduct) {
         
-
-    htmlContentToAppend = `
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xxl-3 col-md-6 col-xs-6 col-lg-4">
-                    <img class="auto" src="${product.image}" alt="${product.name}">
-                </div>
-                <div class="col-xxl-9 col-md-6 col-xs-6 col-lg-8">
-                    <div class="informacion">
-                        <p class="negrita">${product.name}</p>
-                        <p>${product.description}</p>
-                        <p>Vendidos: ${product.soldCount}</p>
-                        <p class="precio">${product.currency} ${product.cost}</p>
+        let htmlContentToAppend = `
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xxl-3 col-md-6 col-xs-6 col-lg-4">
+                        <img class="auto" src="${currentProduct.images[0]}" alt="${currentProduct.name}">
+                        <img class="auto" src="${currentProduct.images[1]}" alt="${currentProduct.name}">
+                        <img class="auto" src="${currentProduct.images[2]}" alt="${currentProduct.name}">
+                        <img class="auto" src="${currentProduct.images[3]}" alt="${currentProduct.name}">
+                    </div>
+                    <div class="col-xxl-9 col-md-6 col-xs-6 col-lg-8">
+                        <div class="informacion">
+                            <p class="negrita">${currentProduct.name}</p>
+                            <p>${currentProduct.description}</p>
+                            <p>Vendidos: ${currentProduct.soldCount}</p>
+                            <p class="precio">${currentProduct.currency} ${currentProduct.cost}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>`;
+            </div>`;
         
-    }
         document.getElementById("product-info-container").innerHTML = htmlContentToAppend;
-    };
+    } else {
+        document.getElementById("product-info-container").innerHTML = '';
+    }
+}
 
-
- document.addEventListener("DOMContentLoaded", function(e){
-    getJSONData(url).then(function(resultObj){
-        if (resultObj.status === "ok"){
-            currentProductArray = resultObj.data
-            showProductInfo()
+document.addEventListener("DOMContentLoaded", function(e) {
+    getJSONData(url).then(function(resultObj) {
+        if (resultObj.status === "ok") {
+            currentProduct = resultObj.data;  
+            showProductInfo();
+        } else {
+            console.error("Error cargando data: ", resultObj.data);
         }
     });
-})
+});
