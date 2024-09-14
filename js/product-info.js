@@ -27,7 +27,7 @@ function showProductInfo(){
         </div>`;
         
     }
-        document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
+        document.getElementById("product-info-container").innerHTML = htmlContentToAppend;
     };
 
 

@@ -64,7 +64,7 @@ function showProductsList(products){
         </div>`;
       
         productoDiv.addEventListener('click', () => {
-            localStorage.setItem('productID', JSON.stringify(products.id)); //
+            localStorage.setItem('productID', JSON.stringify(product.id)); //
             window.location = 'product-info.html';
         });
          
@@ -137,8 +137,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
                 showProductsList(currentProductsArray);
             });
-        });
-    })
-        .catch(error => {
-        console.error('Hubo un problema con la solicitud:', error);
+        })
+    .catch(error => {
+            console.error('Hubo un problema con la solicitud:', error);
+    });
+    
 });
