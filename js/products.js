@@ -6,21 +6,6 @@ let currentSortCriteria = undefined;
 let minCost = undefined;
 let maxCost = undefined;
 
-document.addEventListener ("Keyup", e=>{
-    if (e.target.matches("#searchInput")){
-        if (e.key === "Escape") e.target.value = "";
-        document.querySelectorAll(".name").forEach(nameElement => {
-            const searchText = e.target.value.toLowerCase();
-            const productName = nameElement.textContent.toLowerCase();
-    
-            if (productName.includes(searchText)) {
-                nameElement.classList.remove("filtro");
-            } else {
-                nameElement.classList.add("filtro");
-            }
-        });
-    }
-    });
     
 function sortProducts(criteria){
     let result = [];
@@ -77,12 +62,12 @@ function showProductsList(products){
                 </div>
             </div>
         </div>`;
-      
+    
         productoDiv.addEventListener('click', () => {
             localStorage.setItem('productID', JSON.stringify(product.id)); //
             window.location = 'product-info.html';
         });
-         
+    
         contenedorJson.appendChild(productoDiv);
     });
 }
@@ -107,6 +92,36 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             currentProductsArray = data.products;  
             showProductsList(currentProductsArray);
+
+            /*document.addEventListener ("Keyup", e=>{
+                if (e.target.matches("#searchInput")){
+                    if (e.key === "Escape") e.target.value = "";
+                    document.querySelectorAll(".name").forEach(nameElement => {
+                        const searchText = e.target.value.toLowerCase();
+                        const productName = nameElement.textContent.toLowerCase();
+                
+                        if (productName.includes(searchText)) {
+                            nameElement.classList.remove("filtro");
+                        } else {
+                            nameElement.classList.add("filtro");
+                        }
+                    });
+                }
+                });*/
+
+        const searchInput = document.getElementById('searchInput');
+
+        function filterProducts() {
+            const searchTerm = searchInput.value.toLowerCase();
+            return currentProductsArray.filter(product =>
+            product.name.toLowerCase().includes(searchTerm) || product.description.toLowerCase().includes(searchTerm)
+            );
+        }
+    
+        searchInput.addEventListener('input', function() {
+            const filteredProducts = filterProducts();
+            showProductsList(filteredProducts);
+            });
             
 
             document.getElementById("sortAsc").addEventListener("click", function(){
