@@ -2,7 +2,7 @@ let currentProduct = {};
 const id = localStorage.getItem('productID');
 const url = `https://japceibal.github.io/emercado-api/products/${id}.json`;
 
-
+//Funcion para mostar la información
 function showProductInfo() {
     if (currentProduct) {
         
@@ -26,29 +26,31 @@ function showProductInfo() {
                 </div>
             </div>
             <div class="img-adicional col-xxl-3 col-md-6 col-xs-6 col-lg-4">
-                <div class="productoRelacionado">
-                    <p> ${currentProduct.relatedProducts[0].name}</p>
-                    <img class="auto" src="${currentProduct.relatedProducts[0].image}"</p>
+                    <div class="productoRelacionado" onclick="productosRelacionados(${currentProduct.relatedProducts[0].id})">
+                        <p>${currentProduct.relatedProducts[0].name}</p>
+                        <img class="auto" src="${currentProduct.relatedProducts[0].image}" alt="${currentProduct.relatedProducts[0].name}">
+                    </div>
+                    <div class="productoRelacionado" onclick="productosRelacionados(${currentProduct.relatedProducts[1].id})">
+                        <p>${currentProduct.relatedProducts[1].name}</p>
+                        <img class="auto" src="${currentProduct.relatedProducts[1].image}" alt="${currentProduct.relatedProducts[1].name}">
+                    </div>
                 </div>
-                <div class="productoRelacionado">
-                    <p> ${currentProduct.relatedProducts[1].name}</p>
-                    <img class="auto" src="${currentProduct.relatedProducts[1].image}"</p>
-                </div>
-            </div>
+            
         </div>
     </div>`;
 
-    /*productoRelacionado.addEventListener('click', () => {
-        localStorage.setItem('productID', JSON.stringify(relatedProducts.id)); //
-        window.location = 'product-info.html';
-    });*/
-
-        
         document.getElementById("product-info-container").innerHTML = htmlContentToAppend;
     } else {
         document.getElementById("product-info-container").innerHTML = '';
     }
 }
+
+//Acceder a los productos relacionados
+function productosRelacionados(productId) {
+    localStorage.setItem('productID', productId);
+    window.location.href='product-info.html'; 
+}
+
 
 document.addEventListener("DOMContentLoaded", function(e) {
     getJSONData(url).then(function(resultObj) {

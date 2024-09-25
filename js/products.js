@@ -92,23 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             currentProductsArray = data.products;  
             showProductsList(currentProductsArray);
-
-            /*document.addEventListener ("Keyup", e=>{
-                if (e.target.matches("#searchInput")){
-                    if (e.key === "Escape") e.target.value = "";
-                    document.querySelectorAll(".name").forEach(nameElement => {
-                        const searchText = e.target.value.toLowerCase();
-                        const productName = nameElement.textContent.toLowerCase();
-                
-                        if (productName.includes(searchText)) {
-                            nameElement.classList.remove("filtro");
-                        } else {
-                            nameElement.classList.add("filtro");
-                        }
-                    });
-                }
-                });*/
-
+  
         const searchInput = document.getElementById('searchInput');
 
         function filterProducts() {
