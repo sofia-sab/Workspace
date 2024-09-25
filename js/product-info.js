@@ -25,8 +25,24 @@ function showProductInfo() {
                     <img class="auto" src="${currentProduct.images[3]}" alt="${currentProduct.name}">
                 </div>
             </div>
+            <div class="img-adicional col-xxl-3 col-md-6 col-xs-6 col-lg-4">
+                <div class="productoRelacionado">
+                    <p> ${currentProduct.relatedProducts[0].name}</p>
+                    <img class="auto" src="${currentProduct.relatedProducts[0].image}"</p>
+                </div>
+                <div class="productoRelacionado">
+                    <p> ${currentProduct.relatedProducts[1].name}</p>
+                    <img class="auto" src="${currentProduct.relatedProducts[1].image}"</p>
+                </div>
+            </div>
         </div>
     </div>`;
+
+    /*productoRelacionado.addEventListener('click', () => {
+        localStorage.setItem('productID', JSON.stringify(relatedProducts.id)); //
+        window.location = 'product-info.html';
+    });*/
+
         
         document.getElementById("product-info-container").innerHTML = htmlContentToAppend;
     } else {
