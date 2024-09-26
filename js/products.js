@@ -6,7 +6,7 @@ let currentSortCriteria = undefined;
 let minCost = undefined;
 let maxCost = undefined;
 
-    
+//Ordenar por costo asc, desc, y por cantidad de productos
 function sortProducts(criteria){
     let result = [];
     if (criteria === ORDER_ASC_BY_COST) {
@@ -31,7 +31,7 @@ function sortProducts(criteria){
     showProductsList(result);
 
 };
-
+//Función para mostrar la lista de productos de x categoria 
 function showProductsList(products){
     const contenedorJson = document.getElementById('contenedorJson');
     contenedorJson.innerHTML = '';
