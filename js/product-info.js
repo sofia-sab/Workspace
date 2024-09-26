@@ -82,12 +82,14 @@ document.addEventListener('DOMContentLoaded', function(){
 
 //Seccion comentarios
 function showComments() {
-    let htmlContentToAppend = ''; 
+    let htmlContentToAppend = '<p class="titulomenor">Reseñas:</p>';
+        
     if (commentList && commentList.length > 0) { 
         for (let i = 0; i < commentList.length; i++) {
             let comment = commentList[i];
             htmlContentToAppend += `
-            <div class="comment">
+            <br>
+            <div class="list-group-item cursor-active">
                 <p><strong>Usuario:</strong> ${comment.user}</p>
                 <p><strong>Fecha:</strong> ${comment.dateTime}</p>
                 <p><strong>Calificación:</strong> ${comment.score}</p>
