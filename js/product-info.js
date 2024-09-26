@@ -29,10 +29,7 @@ function showProductInfo() {
                 </div>
             </div>
 
-            <div id="comentarios">
-
-
-            </div>
+        <hr>
             
             <div class="img-adicional col-xxl-3 col-md-6 col-xs-6 col-lg-4">
                     <div class="productoRelacionado" onclick="productosRelacionados(${currentProduct.relatedProducts[0].id})">
@@ -83,16 +80,22 @@ document.addEventListener('DOMContentLoaded', function(){
     });
 });
 
-function showComments(){
-    if (commentList) {
-        let htmlContentToAppend = `
-        <p>Comentarios:</p>
-        <p>${commentList[0].user}</p>
-        `;
-        document.getElementById("product-comments").innerHTML = htmlContentToAppend;
+//Seccion comentarios
+function showComments() {
+    let htmlContentToAppend = ''; 
+    if (commentList && commentList.length > 0) { 
+        for (let i = 0; i < commentList.length; i++) {
+            let comment = commentList[i];
+            htmlContentToAppend += `
+            <div class="comment">
+                <p><strong>Usuario:</strong> ${comment.user}</p>
+                <p><strong>Fecha:</strong> ${comment.dateTime}</p>
+                <p><strong>Calificación:</strong> ${comment.score}</p>
+                <p><strong>Comentario:</strong> ${comment.description}</p>
+            </div>`; 
+        }
+        document.getElementById("product-comments").innerHTML = htmlContentToAppend; 
     } else {
-        document.getElementById("product-comments").innerHTML = '';
+        document.getElementById("product-comments").innerHTML = ''; 
     }
-};
-
-
+}
