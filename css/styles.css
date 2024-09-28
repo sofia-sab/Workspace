@@ -198,8 +198,9 @@ a.custom-card:hover {
 .informacion{ 
   margin: 2%;
   padding: 1%;
-  background-color: #cfd4d3;
+  /* background-color: #cfd4d3; */
   width: 100%;
+  font-size: 130%;
 }
 
 .negrita{
@@ -209,9 +210,14 @@ a.custom-card:hover {
 
 .precio {
   font-size: larger;
-  text-align: right;
+  text-align: left;
   font-weight: bold;
+  margin-left: 35%;
 
+}
+.vendidos{
+  text-align: right;
+  margin-right: 10%;
 }
 .centrado {
   text-align: center;

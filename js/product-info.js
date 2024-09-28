@@ -16,7 +16,7 @@ function showProductInfo() {
                 <img class="auto" src="${currentProduct.images[0]}" alt="${currentProduct.name}">
             </div>
             <div class="col-xxl-9 col-md-6 col-xs-6 col-lg-8">
-                <div class="informacion">
+                <div class="informacion cursor-active">
                     <p class="negrita">${currentProduct.name}</p>
                     <p>${currentProduct.description}</p>
                     <p>Vendidos: ${currentProduct.soldCount}</p>
@@ -41,8 +41,7 @@ function showProductInfo() {
                         <img class="auto" src="${currentProduct.relatedProducts[1].image}" alt="${currentProduct.relatedProducts[1].name}">
                     </div>
                 </div>
-            
-        </div>
+            </div>
     </div>`;
 
         document.getElementById("product-info-container").innerHTML = htmlContentToAppend;
@@ -69,6 +68,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     });
 });
 
+//Cargar información de de calificaciones 
 document.addEventListener('DOMContentLoaded', function(){
     getJSONData(urlComments).then(function(resultObj){
         if (resultObj.status === "ok"){
@@ -80,20 +80,19 @@ document.addEventListener('DOMContentLoaded', function(){
     });
 });
 
-//Seccion comentarios
+//Seccion comententario calificaciones
 function showComments() {
-    let htmlContentToAppend = '<p class="titulomenor">Reseñas:</p>';
+    let htmlContentToAppend = '<hr><br><p class="titulomenor">Reseñas:</p>';
         
     if (commentList && commentList.length > 0) { 
         for (let i = 0; i < commentList.length; i++) {
             let comment = commentList[i];
             htmlContentToAppend += `
             <br>
-            <div class="list-group-item cursor-active">
-                <p><strong>Usuario:</strong> ${comment.user}</p>
-                <p><strong>Fecha:</strong> ${comment.dateTime}</p>
+            <div class="list-group-item">
                 <p><strong>Calificación:</strong> ${comment.score}</p>
-                <p><strong>Comentario:</strong> ${comment.description}</p>
+                <p><strong>${comment.user}: </strong> ${comment.description}</p>
+                <p style="text-align:right;"><strong>Fecha:</strong> ${comment.dateTime}</p>
             </div>`; 
         }
         document.getElementById("product-comments").innerHTML = htmlContentToAppend; 

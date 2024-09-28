@@ -31,6 +31,7 @@ function sortProducts(criteria){
     showProductsList(result);
 
 };
+
 //Función para mostrar la lista de productos de x categoria 
 function showProductsList(products){
     const contenedorJson = document.getElementById('contenedorJson');
@@ -47,24 +48,27 @@ function showProductsList(products){
         productoDiv.className = 'producto';
         
         productoDiv.innerHTML = `
+        <hr>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xxl-3 col-md-6 col-xs-6 col-lg-4">
                     <img class="auto" src="${product.image}" alt="${product.name}">
+                    <p class="precio">${product.currency} ${product.cost}</p>
                 </div>
                 <div class="col-xxl-9 col-md-6 col-xs-6 col-lg-8">
                     <div class="informacion">
                         <p class="negrita">${product.name}</p>
-                        <p>${product.description}</p>
-                        <p>Vendidos: ${product.soldCount}</p>
-                        <p class="precio">${product.currency} ${product.cost}</p>
+                        <p>${product.description}</p><br>
+                        <p class="vendidos">Vendidos: ${product.soldCount}</p>
+                
                     </div>
                 </div>
             </div>
         </div>`;
-    
+
+        //Click para ingresar a la información de cada producto
         productoDiv.addEventListener('click', () => {
-            localStorage.setItem('productID', JSON.stringify(product.id)); //
+            localStorage.setItem('productID', JSON.stringify(product.id)); 
             window.location = 'product-info.html';
         });
     
@@ -72,6 +76,7 @@ function showProductsList(products){
     });
 }
 
+//Cargar contenido de la página
 document.addEventListener('DOMContentLoaded', function() {
     const catID = localStorage.getItem('catID'); 
 
@@ -105,30 +110,30 @@ document.addEventListener('DOMContentLoaded', function() {
         searchInput.addEventListener('input', function() {
             const filteredProducts = filterProducts();
             showProductsList(filteredProducts);
-            });
+        });
             
 
-            document.getElementById("sortAsc").addEventListener("click", function(){
-                sortProducts(ORDER_ASC_BY_COST);
-            });
+        document.getElementById("sortAsc").addEventListener("click", function(){
+            sortProducts(ORDER_ASC_BY_COST);
+        });
         
-            document.getElementById("sortDesc").addEventListener("click", function(){
-                sortProducts(ORDER_DESC_BY_COST);
-            });
+        document.getElementById("sortDesc").addEventListener("click", function(){
+            sortProducts(ORDER_DESC_BY_COST);
+        });
         
-            document.getElementById("sortByCount").addEventListener("click", function(){
-                sortProducts(ORDER_BY_PROD_COUNT);
-            });
+        document.getElementById("sortByCount").addEventListener("click", function(){
+            sortProducts(ORDER_BY_PROD_COUNT);
+        });
 
-            document.getElementById("clearRangeFilter").addEventListener("click", function(){
-                document.getElementById("rangeFilterCostMin").value = "";
-                document.getElementById("rangeFilterCostMax").value = "";
+        document.getElementById("clearRangeFilter").addEventListener("click", function(){
+            document.getElementById("rangeFilterCostMin").value = "";
+            document.getElementById("rangeFilterCostMax").value = "";
         
-                minCost = undefined;
-                maxCost = undefined;
+            minCost = undefined;
+            maxCost = undefined;
         
-                showProductsList(currentProductsArray);
-            });
+            showProductsList(currentProductsArray);
+        });
         
             document.getElementById("rangeFilterCost").addEventListener("click", function(){
                 
