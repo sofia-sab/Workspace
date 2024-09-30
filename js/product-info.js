@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 //Seccion comententario calificaciones
 function showComments() {
-    let htmlContentToAppend = '<hr><br><p class="titulomenor">Reseñas:</p>';
+    let htmlContentToAppend = '<hr><br><h3 class="titulomenor">Reseñas:</h3>';
         
     if (commentList && commentList.length > 0) { 
         for (let i = 0; i < commentList.length; i++) {
@@ -99,4 +99,19 @@ function showComments() {
     } else {
         document.getElementById("product-comments").innerHTML = ''; 
     }
+}
+
+function showCalification() {
+    const stars = document.querySelectorAll('#star-rating i');
+stars.forEach((star, index) => {
+    star.addEventListener('click', () => {
+        stars.forEach((s, i) => {
+            if (i <= index) {
+                s.classList.replace('far', 'fas');
+            } else {
+                s.classList.replace('fas', 'far');
+            }
+        });
+    });
+});
 }
