@@ -80,6 +80,18 @@ document.addEventListener('DOMContentLoaded', function(){
     });
 });
 
+function getStarsHtml(score) {
+    let starsHtml = '';
+    for (let i = 1; i <= 5; i++) {
+        if (i <= score) {
+            starsHtml += '<i class="fas fa-star"></i>';
+        } else {
+            starsHtml += '<i class="far fa-star"></i>';
+        }
+    }
+    return starsHtml;
+}
+
 //Seccion comententario calificaciones
 function showComments() {
     let htmlContentToAppend = '<hr><br><h3 class="titulomenor">Reseñas:</h3>';
@@ -90,7 +102,7 @@ function showComments() {
             htmlContentToAppend += `
             <br>
             <div class="list-group-item">
-                <p><strong>Calificación:</strong> ${comment.score}</p>
+                <p><strong>Calificación:</strong> ${getStarsHtml(comment.score)}</p>
                 <p><strong>${comment.user}: </strong> ${comment.description}</p>
                 <p style="text-align:right;"><strong>Fecha:</strong> ${comment.dateTime}</p>
             </div>`; 
@@ -115,3 +127,27 @@ stars.forEach((star, index) => {
     });
 });
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    showCalification();
+});
+
+document.getElementById("button").addEventListener("click", () => {
+    const input = document.getElementById("input").value;
+    const score = [...document.querySelectorAll('#star-rating i')].filter(star => star.classList.contains('fas')).length;
+
+    if (input && score > 0) {
+        const newComment = {
+            score: score,
+            user: localStorage.getItem('persona'),
+            description: input,
+            dateTime: new Date().toLocaleString()
+        };
+        
+        commentList.push(newComment);
+        showComments();
+        document.getElementById("input").value = ''; // Limpiar el input
+    } else {
+        alert("Por favor, completa todos los campos.");
+    }
+});
