@@ -30,8 +30,9 @@ function showProductInfo() {
             </div>
 
         <hr>
-            
+            <h3>Podria gustarte...</h3>
             <div class="img-adicional col-xxl-3 col-md-6 col-xs-6 col-lg-4">
+                
                     <div class="productoRelacionado" onclick="productosRelacionados(${currentProduct.relatedProducts[0].id})">
                         <p>${currentProduct.relatedProducts[0].name}</p>
                         <img class="auto" src="${currentProduct.relatedProducts[0].image}" alt="${currentProduct.relatedProducts[0].name}">
@@ -50,11 +51,13 @@ function showProductInfo() {
     }
 }
 
+
 //Acceder a los productos relacionados
 function productosRelacionados(productId) {
     localStorage.setItem('productID', productId);
     window.location.href='product-info.html'; 
 }
+
 
 //Información del producto
 document.addEventListener("DOMContentLoaded", function(e) {
@@ -68,6 +71,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     });
 });
 
+
 //Cargar información de de calificaciones 
 document.addEventListener('DOMContentLoaded', function(){
     getJSONData(urlComments).then(function(resultObj){
@@ -80,7 +84,9 @@ document.addEventListener('DOMContentLoaded', function(){
     });
 });
 
-function getStarsHtml(score) {
+
+//Pone la calificacion de los comentarios como estrellas 
+function starRating(score) {
     let starsHtml = '';
     for (let i = 1; i <= 5; i++) {
         if (i <= score) {
@@ -92,6 +98,7 @@ function getStarsHtml(score) {
     return starsHtml;
 }
 
+
 //Seccion comententario calificaciones
 function showComments() {
     let htmlContentToAppend = '<hr><br><h3 class="titulomenor">Reseñas:</h3>';
@@ -102,7 +109,7 @@ function showComments() {
             htmlContentToAppend += `
             <br>
             <div class="list-group-item">
-                <p><strong>Calificación:</strong> ${getStarsHtml(comment.score)}</p>
+                <p>${starRating(comment.score)}</p>
                 <p><strong>${comment.user}: </strong> ${comment.description}</p>
                 <p style="text-align:right;"><strong>Fecha:</strong> ${comment.dateTime}</p>
             </div>`; 
@@ -113,6 +120,8 @@ function showComments() {
     }
 }
 
+
+//Funcion para elegir calificacion de estrellas
 function showCalification() {
     const stars = document.querySelectorAll('#star-rating i');
 stars.forEach((star, index) => {
@@ -132,21 +141,31 @@ document.addEventListener("DOMContentLoaded", () => {
     showCalification();
 });
 
+
+//Funcion para cargar nuevo comentario
 document.getElementById("button").addEventListener("click", () => {
     const input = document.getElementById("input").value;
-    const score = [...document.querySelectorAll('#star-rating i')].filter(star => star.classList.contains('fas')).length;
+    let fecha = new Date();
+    let score = 0;
+    
+    const stars = document.querySelectorAll('#star-rating i');
+    for (let i = 0; i < stars.length; i++) {
+        if (stars[i].classList.contains('fas')) {
+            score++;
+        }
+    }
 
     if (input && score > 0) {
         const newComment = {
             score: score,
             user: localStorage.getItem('persona'),
             description: input,
-            dateTime: new Date().toLocaleString()
+            dateTime: (fecha.getFullYear()+'-'+(fecha.getMonth()+1)+'-'+fecha.getDate()+' '+fecha.getHours()+':'+fecha.getMinutes()+':'+fecha.getSeconds()),
         };
         
         commentList.push(newComment);
         showComments();
-        document.getElementById("input").value = ''; // Limpiar el input
+        document.getElementById("input").value = ''; 
     } else {
         alert("Por favor, completa todos los campos.");
     }
