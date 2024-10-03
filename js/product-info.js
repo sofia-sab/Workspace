@@ -156,12 +156,19 @@ document.getElementById("button").addEventListener("click", () => {
     }
 
     if (input && score > 0) {
-        const newComment = {
-            score: score,
-            user: localStorage.getItem('persona'),
-            description: input,
-            dateTime: (fecha.getFullYear()+'-'+(fecha.getMonth()+1)+'-'+fecha.getDate()+' '+fecha.getHours()+':'+fecha.getMinutes()+':'+fecha.getSeconds()),
-        };
+    const newComment = {
+        score: score,
+        user: localStorage.getItem('persona'),
+        description: input,
+        dateTime: (
+            fecha.getFullYear() + '-' +
+            String(fecha.getMonth() + 1).padStart(2, '0') + '-' +
+            String(fecha.getDate()).padStart(2, '0') + ' ' +
+            String(fecha.getHours()).padStart(2, '0') + ':' +
+            String(fecha.getMinutes()).padStart(2, '0') + ':' +
+            String(fecha.getSeconds()).padStart(2, '0')
+        )
+    };
         
         commentList.push(newComment);
         showComments();
