@@ -34,12 +34,13 @@ function showProductInfo() {
             <div class="img-adicional col-xxl-3 col-md-6 col-xs-6 col-lg-4">
                 
                     <div class="productoRelacionado" onclick="productosRelacionados(${currentProduct.relatedProducts[0].id})">
-                        <p>${currentProduct.relatedProducts[0].name}</p>
+                
                         <img class="auto" src="${currentProduct.relatedProducts[0].image}" alt="${currentProduct.relatedProducts[0].name}">
+                        <p>${currentProduct.relatedProducts[0].name}</p>
                     </div>
                     <div class="productoRelacionado" onclick="productosRelacionados(${currentProduct.relatedProducts[1].id})">
-                        <p>${currentProduct.relatedProducts[1].name}</p>
                         <img class="auto" src="${currentProduct.relatedProducts[1].image}" alt="${currentProduct.relatedProducts[1].name}">
+                        <p>${currentProduct.relatedProducts[1].name}</p>
                     </div>
                 </div>
             </div>
@@ -97,7 +98,6 @@ function starRating(score) {
     }
     return starsHtml;
 }
-
 
 //Seccion comententario calificaciones
 function showComments() {
