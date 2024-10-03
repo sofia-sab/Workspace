@@ -11,12 +11,14 @@ function showProductInfo() {
         
         let htmlContentToAppend = `
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-xxl-3 col-md-6 col-xs-6 col-lg-4">
-                <img class="auto" src="${currentProduct.images[0]}" alt="${currentProduct.name}">
-            </div>
+        <div class="row justify-content-md-center">
+            <div class="col-xxl-3 col-md-6 col-xs-6 col-lg-4 imagen-principal">
+                <img class="auto" id= "imagen-principal" src="${currentProduct.images[0]}" alt="${currentProduct.name}">
+            </div> 
+        </div>
+        <div class="row justify-content-md-center">
             <div class="col-xxl-9 col-md-6 col-xs-6 col-lg-8">
-                <div class="informacion cursor-active">
+                <div class="informacion">
                     <p class="negrita">${currentProduct.name}</p>
                     <p>${currentProduct.description}</p>
                     <p>Vendidos: ${currentProduct.soldCount}</p>
@@ -28,21 +30,24 @@ function showProductInfo() {
                     <img class="auto" src="${currentProduct.images[3]}" alt="${currentProduct.name}">
                 </div>
             </div>
+        </div>
 
         <hr>
-            <h3>Podria gustarte...</h3>
-            <div class="img-adicional col-xxl-3 col-md-6 col-xs-6 col-lg-4">
+            <h2>Creemos que podría gustarte</h2>
+            <div class="row justify-content-md-center">
+            <div class="img-relacionadas col-xxl-3 col-md-6 col-xs-6 col-lg-4">
                 
                     <div class="productoRelacionado" onclick="productosRelacionados(${currentProduct.relatedProducts[0].id})">
                 
                         <img class="auto" src="${currentProduct.relatedProducts[0].image}" alt="${currentProduct.relatedProducts[0].name}">
-                        <p>${currentProduct.relatedProducts[0].name}</p>
+                        <p style="font-size: 20px;">${currentProduct.relatedProducts[0].name}</p>
                     </div>
                     <div class="productoRelacionado" onclick="productosRelacionados(${currentProduct.relatedProducts[1].id})">
                         <img class="auto" src="${currentProduct.relatedProducts[1].image}" alt="${currentProduct.relatedProducts[1].name}">
-                        <p>${currentProduct.relatedProducts[1].name}</p>
+                        <p style="font-size: 20px;">${currentProduct.relatedProducts[1].name}</p>
                     </div>
                 </div>
+            </div>
             </div>
     </div>`;
 
