@@ -193,12 +193,12 @@ a.custom-card:hover {
 .auto {
   width: 100%;
   padding: 2%;
+
 }
 
 .informacion{ 
   margin: 2%;
   padding: 1%;
-  /* background-color: #cfd4d3; */
   width: 100%;
   font-size: 130%;
 }
@@ -256,11 +256,27 @@ body{
   font-family:Arial, Helvetica, sans-serif;
 }
 
+.img-relacionadas {
+  display: flex;          
+  gap: 10px;               
+  margin-top: 10px;        
+  width: 50%;
+}
+
 .img-adicional {
   display: flex;          
   gap: 10px;               
   margin-top: 10px;        
   width: 30%;
+}
+
+.imagen-principal{
+   width: 70%;
+   display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center;
+  place-items: center;
+   
 }
 
 #button{
