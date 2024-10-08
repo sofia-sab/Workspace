@@ -244,12 +244,13 @@ input {
 
 #inicio{
   width: 100%;
+  color: white;
   padding: 10px;
-  border: 1px solid #f767e3;
+  border: 1px solid #6895c5;
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
-  background-color:rgb(245, 143, 211);
+  background-color:#6895c5;
 }
 
 body{
@@ -271,12 +272,12 @@ body{
 }
 
 .imagen-principal{
-   width: 70%;
-   display: flex;
+  width: 70%;
+  display: flex;
   justify-content: center; /* Centra horizontalmente */
   align-items: center;
   place-items: center;
-   
+
 }
 
 #button{
@@ -295,3 +296,4 @@ body{
   box-sizing: border-box;
 
 }
+
