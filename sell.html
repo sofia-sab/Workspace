@@ -29,10 +29,13 @@
           <li class="nav-item">
             <a class="nav-link active" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item">
-          </li>
-          <li class="nav-item">
-            <a id="userShow" class="nav-link" href="my-profile.html"></a>
+          <li class="nav-item dropdown">
+            <button id="userShow" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+              <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+              <li><a class="dropdown-item" href="login.html">Cerrar sesión</a></li>
+            </ul>
           </li>
         </ul>
       </div>
@@ -228,6 +231,7 @@
   <script src="js/dropzone.js"></script>
   <script src="js/init.js"></script>
   <script src="js/sell.js"></script>
+  <script src="js/autenticacion.js"></script>
 </body>
 
 </html>

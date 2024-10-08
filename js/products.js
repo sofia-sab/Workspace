@@ -50,7 +50,7 @@ function showProductsList(products){
         productoDiv.innerHTML = `
         <hr>
         <div class="container-fluid">
-            <div class="row">
+            <div class="row cursor-active">
                 <div class="col-xxl-3 col-md-6 col-xs-6 col-lg-4">
                     <img class="auto" src="${product.image}" alt="${product.name}">
                     <p class="precio">${product.currency} ${product.cost}</p>
