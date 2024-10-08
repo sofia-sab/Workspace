@@ -10,8 +10,10 @@ function checkAuthentication() {
 document.addEventListener('DOMContentLoaded', checkAuthentication);
 
 
-document.addEventListener('DOMContentLoaded', function(){;
+document.addEventListener('DOMContentLoaded', function(){
+
 let closeSesion = document.getElementById('closeSesion');
+
 
 closeSesion.addEventListener('click' , ()=>{
     localStorage.removeItem('persona');
