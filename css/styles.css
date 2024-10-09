@@ -297,3 +297,7 @@ body{
 
 }
 
+.user input{
+  border:none;
+  outline:none;
+}
