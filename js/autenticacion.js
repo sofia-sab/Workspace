@@ -1,3 +1,4 @@
+//Autenticaci[on]
 function checkAuthentication() {
     let username = localStorage.getItem('persona');
     if(!username){
@@ -9,17 +10,14 @@ function checkAuthentication() {
 }
 document.addEventListener('DOMContentLoaded', checkAuthentication);
 
-
+//Cerrar sesión
 document.addEventListener('DOMContentLoaded', function(){
+    let closeSesion = document.getElementById('closeSesion');
 
-let closeSesion = document.getElementById('closeSesion');
-
-
-closeSesion.addEventListener('click' , ()=>{
-    localStorage.removeItem('persona');
-    window.location.href = 'login.html'
-
-});
+    closeSesion.addEventListener('click' , ()=>{
+        localStorage.removeItem('persona');
+        window.location.href = 'login.html'
+    });
 });
 
 
