@@ -11,6 +11,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
         }  else {
             alert('Por favor, complete ambos campos.');
         }
-
     })
 })
+
