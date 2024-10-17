@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
         var username = document.getElementById('username').value; 
         var password = document.getElementById('password').value; 
-        var email = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        var email = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
 
         if (username && password && email.test(username)) {
 
