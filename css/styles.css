@@ -297,7 +297,25 @@ body{
 
 }
 
-.user input{
+.user .inputBorde{
   border:none;
   outline:none;
 }
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+body.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+
+.dark-mode .user input{
+  background-color: #333;
+  color: white;
+}
+
