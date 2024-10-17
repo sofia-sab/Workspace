@@ -58,33 +58,64 @@
   </nav>
   <main>
     <div class="container">
-      <img src="img/user.png"/>
-      <form class="user">
-        <label for="name">Nombre*</label>
-        <input type="text" id="name" name="name" required />
+      <br>
+      <form id="formProfile" class="user">
+         <!-- Imagen -->
+        <div class="mb-3">
+          <label class="form-label">Foto de perfil</label>
+          <div class="d-flex align-items-center">
+              <img src="/api/placeholder/150/150" alt="Foto de perfil" class="profile-pic me-3" id="profilePic">
+              <input type="file" class="form-control" id="profilePicInput" accept="image/*">
+          </div>
+        </div>
         <hr>
-        <label for="second_name">Segundo nombre</label>
-        <input type="text" id="second_name" name="second_name" />
+        <!-- Nombre -->
+        <div class="mb-3">
+          <label for="name" class="form-label">Nombre*</label>
+          <input type="text" class="form-control inputBorde" id="name" required>
+          <div class="invalid-feedback">Por favor, ingrese su nombre</div>
+        </div>
         <hr>
-        <label for="last_name">Apellido*</label>
-        <input type="text" id="last_name" name="last_name" required/>
+        <!-- Segundo nombre  -->
+        <div class="mb-3">
+          <label for="middleName" class="form-label">Segundo nombre</label>
+          <input type="text" class="form-control inputBorde" id="middleName">
+        </div>
         <hr>
-        <label for="scnd_last_name">Segundo apellido</label>
-        <input type="text" id="scnd_last_name" name="scnd_last_name" required/>
+        <!-- Apellido -->
+        <div class="mb-3">
+          <label for="lastName" class="form-label">Apellido*</label>
+          <input type="text" class="form-control inputBorde id="lastName" required>
+          <div class="invalid-feedback">Por favor, ingrese su apellido</div>
+        </div>
         <hr>
-        <label for="email">Email*</label>
-        <input type="email" id="email" name="email" required/> 
+         <!-- Segundo apellido -->
+         <div class="mb-3">
+          <label for="scd-lastname" class="form-label">Segundo apellido</label>
+          <input type="text" class="form-control inputBorde" id="scd-lastname">
+        </div>
         <hr>
-        <label for="number">Número de celular</label>
-        <input type="number" id="number" name="number" required/>
+        <!-- Email -->
+        <div class="mb-3">
+          <label for="email" class="form-label">E-mail*</label>
+          <input type="email" class="form-control inputBorde" id="email" required>
+          <div class="invalid-feedback">Por favor, ingrese su e-mail</div>
+        </div>
         <hr>
-        <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
-          <label class="form-check-label" for="flexSwitchCheckChecked">Claro / Oscuro </label>
+        <!-- Celular -->
+        <div class="mb-3">
+          <label for="phone" class="form-label">Numero de celular:</label>
+          <input type="tel" class="form-control inputBorde" id="phone" pattern="[0-9]{9}">
+        </div>
+        <hr>
+        <!-- Tema  -->
+        <div class="form-check form-switch mb-3">
+          <label class="form-check-label" for="darkModeSwitch">Modo Noche</label>
+          <input class="form-check-input" type="checkbox" id="darkModeSwitch">
         </div>
         <br><br>
-  
-        <button id="">Guardar</button>
+        <!-- Guardar info -->
+        <button type="submit" class="btn btn-primary" id="guardar">Guardar</button>
       </form>
     </div>
   </main>
