@@ -319,3 +319,9 @@ body.dark-mode {
   color: white;
 }
 
+.dark-mode .list-group-item{
+  background-color: #333;
+  color: white ;
+}
+
+

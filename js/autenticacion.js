@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
     closeSesion.addEventListener('click' , ()=>{
         localStorage.removeItem('persona');
+        document.body.classList.remove('dark-mode');
         window.location.href = 'login.html'
     });
 });
-
 
