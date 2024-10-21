@@ -1,10 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() { 
     const formProfile = document.getElementById('formProfile'); // formulario 
-    const darkModeSwitch = document.getElementById('darkModeSwitch'); // botón cambiar de tema 
     const profilePicInput = document.getElementById('profilePicInput');
     const profilePic = document.getElementById('profilePic');
-
-   
 
     loadProfileData();
 
@@ -16,11 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             formProfile.reportValidity();
         }
-    });
-
-    darkModeSwitch.addEventListener('change', function() {
-        document.body.classList.toggle('dark-mode');
-        localStorage.setItem('darkMode', darkModeSwitch.checked);
     });
 
     profilePicInput.addEventListener('change', function(e) {
@@ -39,37 +31,33 @@ document.addEventListener('DOMContentLoaded', function() {
     function loadProfileData() {
         const email = localStorage.getItem('persona');
         if (email) {
-            document.getElementById('email').value = email; // Rellenar el campo de email
+            document.getElementById('email').value = email; // Primero se carga el campo de email
             
-            // Cargar la imagen específica del usuario
+            // Cargar la imagen del usuario
             const storedProfilePic = localStorage.getItem(`profilePic_${email}`);
-            profilePic.src = storedProfilePic || '/api/placeholder/150/150'; // Cargar imagen o usar placeholder
+            profilePic.src = storedProfilePic || 'img/img_perfil.png'; // Cargar imagen 
     
-            // Cargar datos de perfil específicos del usuario
+            // Cargar datos de perfil del usuario
             const profileData = JSON.parse(localStorage.getItem(`profileData_${email}`)) || {};
             for (const [key, value] of Object.entries(profileData)) {
                 const inputElement = document.getElementById(key);
                 if (inputElement) {
-                    inputElement.value = value; // Asignar el valor al input
+                    inputElement.value = value; //se carga el resto de informacion
                 }
             }
         }
-    
-        darkModeSwitch.checked = localStorage.getItem('darkMode') === 'true';
-        document.body.classList.toggle('dark-mode', darkModeSwitch.checked);
     }
     
     function saveProfileData() {
-        const email = document.getElementById('email').value; // Obtener el email
+        const email = document.getElementById('email').value; 
         const profileData = {
             name: document.getElementById('name').value,
             middleName: document.getElementById('middleName').value,
             lastName: document.getElementById('lastName').value,
-            scdLastName: document.getElementById('scdLastname').value,
-            phone: document.getElementById('phone').value,
-            darkMode: darkModeSwitch.checked
+            scdLastName: document.getElementById('scdLastName').value,
+            phone: document.getElementById('phone').value
         };
         localStorage.setItem(`profileData_${email}`, JSON.stringify(profileData)); // Guardar con el email
-        localStorage.setItem('persona', email); // Actualizar el email
+        localStorage.setItem('persona', email); 
     }
 });
