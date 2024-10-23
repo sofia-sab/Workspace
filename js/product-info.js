@@ -31,7 +31,7 @@ function showProductInfo() {
                 </div>
             </div>
         </div>
-
+<button class="boton" id="comprar">Comprar</button>
         <hr>
             <h2>Creemos que podría gustarte</h2>
             <div class="row justify-content-md-center">

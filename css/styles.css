@@ -290,6 +290,16 @@ body{
     font-size: 16px;
 }
 
+.boton{
+  background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
 #input{
   width: 50%;
   padding-bottom: 3%;
