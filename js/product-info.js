@@ -3,7 +3,8 @@ let currentProduct = {};
 const url = `https://japceibal.github.io/emercado-api/products/${id}.json`;
 let commentList = [];
 const urlComments=`https://japceibal.github.io/emercado-api/products_comments/${id}.json`;
-
+let persona = localStorage.getItem('persona');
+const comprar = document.getElementById ('comprar');
 
 //Funcion para mostar la información
 function showProductInfo() {
@@ -31,7 +32,6 @@ function showProductInfo() {
                 </div>
             </div>
         </div>
-<button class="boton" id="comprar">Comprar</button>
         <hr>
             <h2>Creemos que podría gustarte</h2>
             <div class="row justify-content-md-center">
@@ -64,7 +64,6 @@ function productosRelacionados(productId) {
     window.location.href='product-info.html'; 
 }
 
-
 //Información del producto
 document.addEventListener("DOMContentLoaded", function(e) {
     getJSONData(url).then(function(resultObj) {
@@ -90,6 +89,19 @@ document.addEventListener('DOMContentLoaded', function(){
     });
 });
 
+document.addEventListener('DOMContentLoaded', function(){
+    const comprar = document.getElementById('comprar');
+    let productID = localStorage.getItem('productID');
+
+    if (productID) { // Verificamos si productID existe en localStorage
+        comprar.addEventListener('click', () => {
+            localStorage.setItem('producto_comprar', JSON.stringify(productID));
+            window.location.href = 'cart.html';
+        });
+    } else {
+        console.error('No se encontró productID en localStorage.');
+    }
+});
 
 //Pone la calificacion de los comentarios como estrellas 
 function starRating(score) {
