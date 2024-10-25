@@ -6,57 +6,88 @@ const urlComments=`https://japceibal.github.io/emercado-api/products_comments/${
 let persona = localStorage.getItem('persona');
 const comprar = document.getElementById ('comprar');
 
-//Funcion para mostar la información
+
+//Funcion para mostar la información del producto
 function showProductInfo() {
     if (currentProduct) {
         
-        let htmlContentToAppend = `
-    <div class="container-fluid">
-        <div class="row justify-content-md-center">
-            <div class="col-xxl-3 col-md-6 col-xs-6 col-lg-4 imagen-principal">
-                <img class="auto" id= "imagen-principal" src="${currentProduct.images[0]}" alt="${currentProduct.name}">
-            </div> 
+let htmlContentToAppend = `
+    <br><div class="container-fluid">
+        <div class="row justify-content-md-center" style="max-width: 650px; margin: auto;">
+            <div id="carousel"class="carousel slide">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#carousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="${currentProduct.images[0]}" class="d-block w-100" alt="${currentProduct.name}">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="${currentProduct.images[1]}" class="d-block w-100" alt="${currentProduct.name}">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="${currentProduct.images[2]}" class="d-block w-100" alt="${currentProduct.name}">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="${currentProduct.images[3]}" class="d-block w-100" alt="${currentProduct.name}"></img>
+                    </div>
+                </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
+    </div>
         <div class="row justify-content-md-center">
             <div class="col-xxl-9 col-md-6 col-xs-6 col-lg-8">
                 <div class="informacion">
-                    <p class="negrita">${currentProduct.name}</p>
+                    <p class="negrita centrado">${currentProduct.name}</p>
                     <p>${currentProduct.description}</p>
                     <p>Vendidos: ${currentProduct.soldCount}</p>
                     <p class="precio">${currentProduct.currency} ${currentProduct.cost}</p>
                 </div>
-                <div class="img-adicional">
-                    <img class="auto" src="${currentProduct.images[1]}" alt="${currentProduct.name}">
-                    <img class="auto" src="${currentProduct.images[2]}" alt="${currentProduct.name}">
-                    <img class="auto" src="${currentProduct.images[3]}" alt="${currentProduct.name}">
-                </div>
             </div>
-        </div>
-        <hr>
-            <h2>Creemos que podría gustarte</h2>
-            <div class="row justify-content-md-center">
-            <div class="img-relacionadas col-xxl-3 col-md-6 col-xs-6 col-lg-4">
-                
-                    <div class="productoRelacionado" onclick="productosRelacionados(${currentProduct.relatedProducts[0].id})">
-                
-                        <img class="auto" src="${currentProduct.relatedProducts[0].image}" alt="${currentProduct.relatedProducts[0].name}">
-                        <p style="font-size: 20px;">${currentProduct.relatedProducts[0].name}</p>
-                    </div>
-                    <div class="productoRelacionado" onclick="productosRelacionados(${currentProduct.relatedProducts[1].id})">
-                        <img class="auto" src="${currentProduct.relatedProducts[1].image}" alt="${currentProduct.relatedProducts[1].name}">
-                        <p style="font-size: 20px;">${currentProduct.relatedProducts[1].name}</p>
-                    </div>
-                </div>
-            </div>
-            </div>
-    </div>`;
+        </div>`;
 
         document.getElementById("product-info-container").innerHTML = htmlContentToAppend;
     } else {
         document.getElementById("product-info-container").innerHTML = '';
-    }
-}
+    };
+};
 
+
+
+//Funcion para mostrar los productos relacionados (corregido)
+function showProductRelated() {
+    let htmlContentToAppend = '';
+    
+    if (currentProduct && currentProduct.relatedProducts && currentProduct.relatedProducts.length > 0) {
+        for (let i = 0; i < currentProduct.relatedProducts.length; i++) {
+            let relatedProduct = currentProduct.relatedProducts[i];
+
+        htmlContentToAppend += `
+            <div class="row justify-content-md-center">
+                <div class="img-relacionadas col-xxl-3 col-md-6 col-xs-6 col-lg-4">
+                    <div class="productoRelacionado" onclick="productosRelacionados(${relatedProduct.id})">
+                        <img class="auto" src="${relatedProduct.image}" alt="${relatedProduct.name}">
+                        <p style="font-size: 20px; text-align: center;">${relatedProduct.name}</p>
+                    </div>
+                </div>
+            </div>`;
+        };
+
+        document.getElementById("product-related").innerHTML = htmlContentToAppend;
+    } else {
+        document.getElementById("product-related").innerHTML = '';
+    };
+};
 
 //Acceder a los productos relacionados
 function productosRelacionados(productId) {
@@ -70,8 +101,9 @@ document.addEventListener("DOMContentLoaded", function(e) {
         if (resultObj.status === "ok") {
             currentProduct = resultObj.data;  
             showProductInfo();
+            showProductRelated();
         } else {
-            console.error("Error cargando data: ", resultObj.data);
+            console.error("Error: ", resultObj.data);
         }
     });
 });
@@ -84,22 +116,23 @@ document.addEventListener('DOMContentLoaded', function(){
             commentList = resultObj.data;
             showComments();
         } else {
-            console.error("Error cargando data: ", resultObj.data);
+            console.error("Error cargando comentarios: ", resultObj.data);
         }
     });
 });
 
+//Boton para comprar
 document.addEventListener('DOMContentLoaded', function(){
     const comprar = document.getElementById('comprar');
     let productID = localStorage.getItem('productID');
 
-    if (productID) { // Verificamos si productID existe en localStorage
+    if (productID) { 
         comprar.addEventListener('click', () => {
-            localStorage.setItem('producto_comprar', JSON.stringify(productID));
+            localStorage.setItem('producto_comprar', productID);
             window.location.href = 'cart.html';
         });
     } else {
-        console.error('No se encontró productID en localStorage.');
+        console.error('No se encontró el producto');
     }
 });
 
@@ -116,7 +149,7 @@ function starRating(score) {
     return starsHtml;
 }
 
-//Seccion comententario calificaciones
+//Seccion comententarios
 function showComments() {
     let htmlContentToAppend = '<hr><br><h3 class="titulomenor">Reseñas:</h3>';
         
@@ -141,6 +174,7 @@ function showComments() {
 //Funcion para elegir calificacion de estrellas
 function showCalification() {
     const stars = document.querySelectorAll('#star-rating i');
+
 stars.forEach((star, index) => {
     star.addEventListener('click', () => {
         stars.forEach((s, i) => {
@@ -187,10 +221,11 @@ document.getElementById("button").addEventListener("click", () => {
         )
     };
         
-        commentList.push(newComment);
-        showComments();
+    commentList.push(newComment);
+    showComments();
+
         document.getElementById("input").value = ''; 
     } else {
-        alert("Por favor, completa todos los campos.");
-    }
+        alert("Por favor, complete todos los campos.");
+    };
 });
