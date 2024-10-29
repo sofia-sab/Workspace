@@ -339,3 +339,8 @@ body.dark-mode {
   background-color: #333;
   color: white ;
 }
+
+/* Botones de aumentar y disminuir cantidad */
+.cantidad {
+  display: flex;
+}

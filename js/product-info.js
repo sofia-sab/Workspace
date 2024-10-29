@@ -4,7 +4,7 @@ const url = `https://japceibal.github.io/emercado-api/products/${id}.json`;
 let commentList = [];
 const urlComments=`https://japceibal.github.io/emercado-api/products_comments/${id}.json`;
 let persona = localStorage.getItem('persona');
-const comprar = document.getElementById ('comprar');
+// const comprar = document.getElementById ('comprar');
 
 
 //Funcion para mostar la información del producto
@@ -121,20 +121,20 @@ document.addEventListener('DOMContentLoaded', function(){
     });
 });
 
-//Boton para comprar
-document.addEventListener('DOMContentLoaded', function(){
-    const comprar = document.getElementById('comprar');
-    let productID = localStorage.getItem('productID');
+// //Boton para comprar
+// document.addEventListener('DOMContentLoaded', function(){
+//     const comprar = document.getElementById('comprar');
+//     let productID = localStorage.getItem('productID');
 
-    if (productID) { 
-        comprar.addEventListener('click', () => {
-            localStorage.setItem('producto_comprar', productID);
-            window.location.href = 'cart.html';
-        });
-    } else {
-        console.error('No se encontró el producto');
-    }
-});
+//     if (productID) { 
+//         comprar.addEventListener('click', () => {
+//             localStorage.setItem('producto_comprar', productID);
+//             window.location.href = 'cart.html';
+//         });
+//     } else {
+//         console.error('No se encontró el producto');
+//     }
+// });
 
 //Pone la calificacion de los comentarios como estrellas 
 function starRating(score) {

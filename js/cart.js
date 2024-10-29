@@ -1,51 +1,116 @@
-const USER_CART = 'https://japceibal.github.io/emercado-api/user_cart/${persona}.json';
-let products = localStorage.getItem('producto_comprar');
-let persona = localStorage.getItem('persona');
-const comprar = document.getElementById ('comprar');
+document.addEventListener('DOMContentLoaded', function() {
+    const comprar = document.getElementById('comprar');
+    let productID = localStorage.getItem('productID');
 
-document.addEventListener('DOMContentLoaded', function(){
-    if (products){ 
-        let htmlContentToAppend = `
-        <h1>Carrito de compras</h1>
-        <div class="row cursor-active">
-                <div class="col-xxl-3 col-md-6 col-xs-6 col-lg-4">
-                    <p>${products.name}</p>
-                    <img class="auto" src="${products.image}" alt="${products.name}">
-                    <p class="precio">${products.currency} ${products.cost}</p>
-                </div>
-        </div>`
-        
-        document.getElementById('productoComprar').innerHTML = htmlContentToAppend;
-    
-    }  else {  
-        document.getElementById('productoComprar').innerHTML = htmlContentToAppend;
-    
+    if (productID && comprar) { 
+        comprar.addEventListener('click', () => {
+            let userCart = JSON.parse(localStorage.getItem('userCart')) || {
+                user: localStorage.getItem('persona'),
+                articles: []
+            };
+
+            const estaEnElCarrito = userCart.articles.find(article => article.id === productID);
+            if (estaEnElCarrito) {
+                alert('Este producto ya está en el carrito.');
+            } else {
+                const nuevoProducto = {
+                    id: productID, 
+                    name: currentProduct.name,
+                    count: 1,
+                    unitCost: currentProduct.cost,
+                    currency: currentProduct.currency,
+                    image: currentProduct.images[0],
+                    subtotal: currentProduct.cost, // Inicializa el subtotal correctamente
+                };
+
+                userCart.articles.push(nuevoProducto);
+                localStorage.setItem('userCart', JSON.stringify(userCart));
+                window.location.href = 'cart.html';
+            }
+        });
+    } else {
+        console.error('No se encontró el producto');
     }
+
+    showCart();
 });
 
-//for (let i = 0; i < commentList.length; i++) {
-//    let comment = commentList[i];
-//     htmlContentToAppend += `
-//     <br>
-//     <div class="list-group-item">
-//         <p>${starRating(comment.score)}</p>
-//         <p><strong>${comment.user}: </strong> ${comment.description}</p>
-//         <p style="text-align:right;"><strong>Fecha:</strong> ${comment.dateTime}</p>
-//     </div>`; 
+function showCart() {
+    const userCart = JSON.parse(localStorage.getItem('userCart'));
+    const contenedorCarrito = document.getElementById('productoComprar');
 
-// }
+    contenedorCarrito.innerHTML = '';
 
-// function saveProfileData() {
-//     const email = document.getElementById('email').value; 
-//     const profileData = {
-//         name: document.getElementById('name').value,
-//         middleName: document.getElementById('middleName').value,
-//         lastName: document.getElementById('lastName').value,
-//         scdLastName: document.getElementById('scdLastName').value,
-//         phone: document.getElementById('phone').value
-//     };
-//     localStorage.setItem(`profileData_${email}`, JSON.stringify(profileData)); // Guardar con el email
-//     localStorage.setItem('persona', email); 
+    if (userCart && userCart.articles.length > 0) {
+        userCart.articles.forEach(article => {
+
+            const articuloDiv = document.createElement('div');
+            articuloDiv.classList.add('articulo');
+            articuloDiv.innerHTML = `
+                <div class="row">
+                    <div class="col-6">         
+                        <h2 class="centrado">${article.name}</h2>
+                        <img class="auto" src="${article.image}" alt="${article.name}">
+                    </div> 
+                    <div class="col-3"><br><br>
+                        <p>Precio:${article.currency} ${article.unitCost} </p>
+                        <p>Cantidad</p>
+                        <div class="cantidad">
+                            <button class="btn btn-outline-secondary" type="button" onclick="menos('${article.id}')">-</button>
+                            <input type="text" id="cantidad-${article.id}" class="form-control" value="${article.count}" min="1" oninput="subtotalActualizado('${article.id}')" />
+                            <button class="btn btn-outline-secondary" type="button" onclick="mas('${article.id}')">+</button>
+                        </div>
+                        <p>Subtotal: <span id="subtotal-${article.id}">${article.currency}${article.subtotal}</span></p>
+                        <br><br><button class="btn btn-primary">Comprar</button>
+                    </div> 
+                    <hr>
+                </div>`;
+            
+            contenedorCarrito.appendChild(articuloDiv);
+        });
+    } else {
+        contenedorCarrito.innerHTML = `
+        <div class="alert alert-danger text-center" role="alert">
+            <h4 class="alert-heading">Su carrito se encuentra vacío.</h4>
+        </div>`;
+    }
+}
+
+function mas(articleID) {
+    const input = document.getElementById(`cantidad-${articleID}`);
+    if (input) {
+        input.value = parseInt(input.value) + 1;
+        subtotalActualizado(articleID); // Actualiza el subtotal
+    }
+}
+
+function menos(articleID) {
+    const input = document.getElementById(`cantidad-${articleID}`);
+    if (input && parseInt(input.value) > 1) {
+        input.value = parseInt(input.value) - 1;
+        subtotalActualizado(articleID); // Actualiza el subtotal
+    }
+}
+
+function subtotalActualizado(articleID) {
+    const input = document.getElementById(`cantidad-${articleID}`);
+    const count = parseInt(input.value); //valor de cantidad
+    const userCart = JSON.parse(localStorage.getItem('userCart'));
+    const article = userCart.articles.find(a => a.id === articleID); 
+    
+    if (article) {
+        article.count = count;
+        article.subtotal = count * article.unitCost; 
+
+        document.getElementById(`subtotal-${articleID}`).textContent = article.subtotal;
+        localStorage.setItem('userCart', JSON.stringify(userCart)); 
+    }
+}
+
+
+
+//-------------------------------------------------------------------------------------------------------
+
 
 // };
 // let cart = JSON.parse(localStorage.getItem('USER_CART')) || { user: 'persona', articles: [] };
@@ -68,8 +133,7 @@ document.addEventListener('DOMContentLoaded', function(){
 // //  Redirigir a la página del carrito
 // window.location = 'cart.html';
 // });
-
-
+//-----------------------------------------------------------------------------------------------------
 // products.forEach(product => {
 //     htmlContentToAppend += `
 //     <h1>Carrito de compras</h1>
@@ -81,3 +145,5 @@ document.addEventListener('DOMContentLoaded', function(){
 //         </div>
 //     </div>`;
 // });
+
+//------------------------------------------------------------------------------------------------------
