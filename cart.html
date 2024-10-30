@@ -33,7 +33,7 @@
             <button id="userShow" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></button>
             <ul class="dropdown-menu dropdown-menu-dark">
               <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
-              <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+              <li><a class="dropdown-item" href="cart.html">Mi carrito <span class="badge text-bg-secondary" id="cantidadProductos"></span></a></li>
               <li><hr class="dropdown-divider"></li>
               <li id="closeSesion" ><a class="dropdown-item cursor-active" >Cerrar sesión</a></li>
             </ul>
@@ -44,10 +44,11 @@
   </nav>
   <main>
     <div class="container">
+      <h3>Carrito de compras</h3>
       <div id="productoComprar">
         <!-- Contenedor para los productos del carrito -->
-        
       </div>
+      <p id="total">Total:</p><br><br><button class="btn btn-primary">Comprar</button>
     </div>
   </main>
   <footer class="text-muted">

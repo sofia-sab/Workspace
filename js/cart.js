@@ -28,10 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 window.location.href = 'cart.html';
             }
         });
-    } else {
-        console.error('No se encontró el producto');
-    }
-
+    } 
     showCart();
 });
 
@@ -61,7 +58,6 @@ function showCart() {
                             <button class="btn btn-outline-secondary" type="button" onclick="mas('${article.id}')">+</button>
                         </div>
                         <p>Subtotal: <span id="subtotal-${article.id}">${article.currency}${article.subtotal}</span></p>
-                        <br><br><button class="btn btn-primary">Comprar</button>
                     </div> 
                     <hr>
                 </div>`;
@@ -107,43 +103,15 @@ function subtotalActualizado(articleID) {
     }
 }
 
+function calcularTotal(cart) {
+    document.getElementById('total').textContent = total
+    let total = 0;
+    cart.articles.forEach(articulo => {
+        total += articulo.subtotal;
+    });
+    return total;
+
+    
+}
 
 
-//-------------------------------------------------------------------------------------------------------
-
-
-// };
-// let cart = JSON.parse(localStorage.getItem('USER_CART')) || { user: 'persona', articles: [] };
-
-//     let newProduct = {
-//     id: 1,                     
-//     name: 'Lentes de Sol',      
-//     count: 1,                   
-//     unitCost: 50,              
-//     currency: 'USD',            
-//     image: 'imagen.jpg'         
-// };
-
-// //  Agregar el nuevo producto al array de artículos
-// cart.articles.push(newProduct);
-
-// // Guardar el carrito actualizado en el localStorage
-// localStorage.setItem('user_cart', JSON.stringify(cart));
-
-// //  Redirigir a la página del carrito
-// window.location = 'cart.html';
-// });
-//-----------------------------------------------------------------------------------------------------
-// products.forEach(product => {
-//     htmlContentToAppend += `
-//     <h1>Carrito de compras</h1>
-//     <div class="row cursor-active">
-//         <div class="col-xxl-3 col-md-6 col-xs-6 col-lg-4">
-//             <p>${product.name}</p>
-//             <img class="auto" src="${product.image}" alt="${product.name}">
-//             <p class="precio">${product.currency} ${product.cost}</p>
-//         </div>
-//     </div>`;
-// });
-
-//------------------------------------------------------------------------------------------------------
