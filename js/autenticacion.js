@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function(){
     closeSesion.addEventListener('click' , ()=>{
         localStorage.removeItem('persona');
         document.body.classList.remove('dark-mode');
+        localStorage.removeItem('userCart'); // es para que cuando cierre sesion, se elimine el carrito, asi al siguiente le aparece vacio
         window.location.href = 'login.html'
     });
 });

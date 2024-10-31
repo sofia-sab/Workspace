@@ -344,3 +344,8 @@ body.dark-mode {
 .cantidad {
   display: flex;
 }
+
+#carrito {
+  text-align: center;
+  font-weight: bold;
+}

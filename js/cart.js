@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     unitCost: currentProduct.cost,
                     currency: currentProduct.currency,
                     image: currentProduct.images[0],
-                    subtotal: currentProduct.cost, // Inicializa el subtotal correctamente
+                    subtotal: currentProduct.cost,
                 };
 
                 userCart.articles.push(nuevoProducto);
@@ -35,12 +35,15 @@ document.addEventListener('DOMContentLoaded', function() {
 function showCart() {
     const userCart = JSON.parse(localStorage.getItem('userCart'));
     const contenedorCarrito = document.getElementById('productoComprar');
+    const totalGeneral = document.getElementById('total'); 
+    const botonComprar = document.getElementById('botonComprar'); // se declara para ocultar el boton, en caso de que no existan productos
+    const carrito = document.getElementById('carrito');
 
     contenedorCarrito.innerHTML = '';
+    let total = 0; // Inicializa el total
 
     if (userCart && userCart.articles.length > 0) {
         userCart.articles.forEach(article => {
-
             const articuloDiv = document.createElement('div');
             articuloDiv.classList.add('articulo');
             articuloDiv.innerHTML = `
@@ -50,25 +53,31 @@ function showCart() {
                         <img class="auto" src="${article.image}" alt="${article.name}">
                     </div> 
                     <div class="col-3"><br><br>
-                        <p>Precio:${article.currency} ${article.unitCost} </p>
+                        <p>Precio: ${article.currency} ${article.unitCost}</p>
                         <p>Cantidad</p>
                         <div class="cantidad">
                             <button class="btn btn-outline-secondary" type="button" onclick="menos('${article.id}')">-</button>
                             <input type="text" id="cantidad-${article.id}" class="form-control" value="${article.count}" min="1" oninput="subtotalActualizado('${article.id}')" />
                             <button class="btn btn-outline-secondary" type="button" onclick="mas('${article.id}')">+</button>
                         </div>
+                        <br>
                         <p>Subtotal: <span id="subtotal-${article.id}">${article.currency}${article.subtotal}</span></p>
                     </div> 
                     <hr>
                 </div>`;
             
             contenedorCarrito.appendChild(articuloDiv);
+            total += article.subtotal; // Suma el subtotal al total por cada articulo
         });
+
+        totalGeneral.textContent = `Total: ${userCart.articles[0].currency} ${total}`; // Muestra el total
     } else {
         contenedorCarrito.innerHTML = `
         <div class="alert alert-danger text-center" role="alert">
             <h4 class="alert-heading">Su carrito se encuentra vacío.</h4>
         </div>`;
+        botonComprar.style.display = 'none'; // Oculta el boton de comprar si no tenemos productos en el carrito
+        carrito.style.display = 'none';
     }
 }
 
@@ -90,7 +99,7 @@ function menos(articleID) {
 
 function subtotalActualizado(articleID) {
     const input = document.getElementById(`cantidad-${articleID}`);
-    const count = parseInt(input.value); //valor de cantidad
+    const count = parseInt(input.value); // valor de cantidad
     const userCart = JSON.parse(localStorage.getItem('userCart'));
     const article = userCart.articles.find(a => a.id === articleID); 
     
@@ -98,20 +107,16 @@ function subtotalActualizado(articleID) {
         article.count = count;
         article.subtotal = count * article.unitCost; 
 
-        document.getElementById(`subtotal-${articleID}`).textContent = article.subtotal;
+        document.getElementById(`subtotal-${articleID}`).textContent = `${article.currency}${article.subtotal}`;
         localStorage.setItem('userCart', JSON.stringify(userCart)); 
+        calcularTotal(userCart); // Llama a calcularTotal para actualizar el total
     }
 }
 
 function calcularTotal(cart) {
-    document.getElementById('total').textContent = total
-    let total = 0;
+    let total = 0; // Reinicia el total
     cart.articles.forEach(articulo => {
         total += articulo.subtotal;
     });
-    return total;
-
-    
+    document.getElementById('total').textContent = `Total: ${cart.articles[0].currency} ${total}`; // Muestra el total, si quisieramos hacerlo por cada moneda, deberiamos crear un id de cada uno y mostrarlos por separado, aclarando el articles.currenci
 }
-
-
