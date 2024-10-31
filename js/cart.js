@@ -63,9 +63,11 @@ function showCart() {
                         <br>
                         <p>Subtotal: <span id="subtotal-${article.id}">${article.currency}${article.subtotal}</span></p>
                     </div> 
-                    <hr>
-                </div>`;
-            
+                    <div class="col-3"> <br> <br> 
+                    <p><a onclick="eliminar('${article.id}')" href="#" id="Eliminar" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Eliminar</a></p>
+                    </div>
+                </div>
+                <hr>`;
             contenedorCarrito.appendChild(articuloDiv);
             total += article.subtotal; // Suma el subtotal al total por cada articulo
         });
@@ -119,4 +121,8 @@ function calcularTotal(cart) {
         total += articulo.subtotal;
     });
     document.getElementById('total').textContent = `Total: ${cart.articles[0].currency} ${total}`; // Muestra el total, si quisieramos hacerlo por cada moneda, deberiamos crear un id de cada uno y mostrarlos por separado, aclarando el articles.currenci
+}
+
+function eliminarProducto(articuleID) {
+
 }
