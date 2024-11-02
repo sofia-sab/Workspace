@@ -41,6 +41,7 @@ function showCart() {
 
     contenedorCarrito.innerHTML = '';
     let total = 0; // Inicializa el total
+    let totalCantidad = 0; // Inicializa el total de productos
 
     if (userCart && userCart.articles.length > 0) {
         userCart.articles.forEach(article => {
@@ -70,10 +71,12 @@ function showCart() {
                 <hr>`;
             contenedorCarrito.appendChild(articuloDiv);
             total += article.subtotal; // Suma el subtotal al total por cada articulo
+            totalCantidad += article.count; // Suma cantidad de producto agregado
 
         });
 
         totalGeneral.textContent = `Total: ${userCart.articles[0].currency} ${total}`; // Muestra el total
+        document.getElementById('badge').textContent = `${totalCantidad}`;
     } else {
         contenedorCarrito.innerHTML = `
         <div class="alert alert-danger text-center" role="alert">
@@ -81,6 +84,8 @@ function showCart() {
         </div>`;
         botonComprar.style.display = 'none'; // Oculta el boton de comprar si no tenemos productos en el carrito
         carrito.style.display = 'none';
+        document.getElementById('badge').textContent = ``;
+        document.getElementById('total').textContent = ``;
     }
 }
 
@@ -89,6 +94,7 @@ function mas(articleID) {
     if (input) {
         input.value = parseInt(input.value) + 1;
         subtotalActualizado(articleID); // Actualiza el subtotal
+        badge();
     }
 }
 
@@ -97,6 +103,7 @@ function menos(articleID) {
     if (input && parseInt(input.value) > 1) {
         input.value = parseInt(input.value) - 1;
         subtotalActualizado(articleID); // Actualiza el subtotal
+        badge();
     }
 }
 
@@ -113,9 +120,10 @@ function subtotalActualizado(articleID) {
         document.getElementById(`subtotal-${articleID}`).textContent = `${article.currency}${article.subtotal}`;
         localStorage.setItem('userCart', JSON.stringify(userCart)); 
         calcularTotal(userCart); // Llama a calcularTotal para actualizar el total
+        badge();
     }
 }
- 
+
 //En proceso
 function calcularTotal(cart) {
     let total = 0; // Reinicia el total
@@ -135,6 +143,24 @@ function eliminarProducto(articleID) {
         showCart();
         subtotalActualizado(userCart);
         calcularTotal(userCart);
+        badge();
         }
     }
 }
+
+function badge() {
+    const userCart = JSON.parse(localStorage.getItem('userCart'));
+    let totalCantidad = 0;
+
+    if (userCart && userCart.articles.length > 0) {
+        userCart.articles.forEach(article => {
+            totalCantidad += article.count; // Suma la cantidad de cada artículo
+        });
+    }
+    localStorage.setItem('userCart', JSON.stringify(userCart))
+    document.getElementById('badge').textContent = `${totalCantidad}`; // Actualiza el badge con la cantidad total
+}
+
+
+    
+
