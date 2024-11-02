@@ -70,12 +70,14 @@ function showCart() {
                 </div>
                 <hr>`;
             contenedorCarrito.appendChild(articuloDiv);
-            total += article.subtotal; // Suma el subtotal al total por cada articulo
+
+            const subtotalActual = article.currency === 'USD' ? article.subtotal * 40 : article.subtotal
+            total += subtotalActual; 
             totalCantidad += article.count; // Suma cantidad de producto agregado
 
         });
 
-        totalGeneral.textContent = `Total: ${userCart.articles[0].currency} ${total}`; // Muestra el total
+        totalGeneral.textContent = `Total: UYU ${total}`; // Muestra el total
         document.getElementById('badge').textContent = `${totalCantidad}`;
     } else {
         contenedorCarrito.innerHTML = `
@@ -124,13 +126,20 @@ function subtotalActualizado(articleID) {
     }
 }
 
-//En proceso
 function calcularTotal(cart) {
-    let total = 0; // Reinicia el total
+    let total = 0; 
+    const dolar = 40; 
+
     cart.articles.forEach(articulo => {
-        total += articulo.subtotal;
+        let subtotalActual;
+        if (articulo.currency === 'USD') {
+            subtotalActual = articulo.subtotal * dolar; // Convertir a pesos
+        } else {
+            subtotalActual = articulo.subtotal; 
+        }
+        total += subtotalActual;
     });
-    document.getElementById('total').textContent = `Total: ${cart.articles[0].currency} ${total}`; // Muestra el total, si quisieramos hacerlo por cada moneda, deberiamos crear un id de cada uno y mostrarlos por separado, aclarando el articles.currenci
+    document.getElementById('total').textContent = `Total: UYU ${total}`; 
 }
 
 function eliminarProducto(articleID) {
@@ -160,7 +169,3 @@ function badge() {
     localStorage.setItem('userCart', JSON.stringify(userCart))
     document.getElementById('badge').textContent = `${totalCantidad}`; // Actualiza el badge con la cantidad total
 }
-
-
-    
-
