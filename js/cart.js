@@ -64,12 +64,13 @@ function showCart() {
                         <p>Subtotal: <span id="subtotal-${article.id}">${article.currency}${article.subtotal}</span></p>
                     </div> 
                     <div class="col-3"> <br> <br> 
-                    <p><a onclick="eliminar('${article.id}')" href="#" id="Eliminar" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Eliminar</a></p>
+                    <p><a onclick="eliminarProducto('${article.id}')" href="#" id="eliminar" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Eliminar</a></p>
                     </div>
                 </div>
                 <hr>`;
             contenedorCarrito.appendChild(articuloDiv);
             total += article.subtotal; // Suma el subtotal al total por cada articulo
+
         });
 
         totalGeneral.textContent = `Total: ${userCart.articles[0].currency} ${total}`; // Muestra el total
@@ -114,7 +115,8 @@ function subtotalActualizado(articleID) {
         calcularTotal(userCart); // Llama a calcularTotal para actualizar el total
     }
 }
-
+ 
+//En proceso
 function calcularTotal(cart) {
     let total = 0; // Reinicia el total
     cart.articles.forEach(articulo => {
@@ -123,6 +125,16 @@ function calcularTotal(cart) {
     document.getElementById('total').textContent = `Total: ${cart.articles[0].currency} ${total}`; // Muestra el total, si quisieramos hacerlo por cada moneda, deberiamos crear un id de cada uno y mostrarlos por separado, aclarando el articles.currenci
 }
 
-function eliminarProducto(articuleID) {
-
+function eliminarProducto(articleID) {
+    const userCart = JSON.parse(localStorage.getItem('userCart'));
+    if (userCart && userCart.articles) {
+        const index = userCart.articles.findIndex(article => article.id === articleID);
+        if (index !== -1) {
+        userCart.articles.splice(index, 1);
+        localStorage.setItem('userCart', JSON.stringify(userCart)); 
+        showCart();
+        subtotalActualizado(userCart);
+        calcularTotal(userCart);
+        }
+    }
 }
