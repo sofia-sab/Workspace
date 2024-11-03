@@ -22,3 +22,15 @@ document.addEventListener('DOMContentLoaded', function(){
     });
 });
 
+function badge() {
+    const userCart = JSON.parse(localStorage.getItem('userCart'));
+    let totalCantidad = 0;
+
+    if (userCart && userCart.articles.length > 0) {
+        userCart.articles.forEach(article => {
+            totalCantidad += article.count; // Suma la cantidad de cada artículo
+        });
+    }
+    localStorage.setItem('userCart', JSON.stringify(userCart))
+    document.getElementById('badge').textContent = `${totalCantidad}`; // Actualiza el badge con la cantidad total
+}

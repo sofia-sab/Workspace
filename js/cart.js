@@ -38,6 +38,7 @@ function showCart() {
     const totalGeneral = document.getElementById('total'); 
     const botonComprar = document.getElementById('botonComprar'); // se declara para ocultar el boton, en caso de que no existan productos
     const carrito = document.getElementById('carrito');
+    const badge = document.getElementById('badge');
 
     contenedorCarrito.innerHTML = '';
     let total = 0; // Inicializa el total
@@ -86,7 +87,7 @@ function showCart() {
         </div>`;
         botonComprar.style.display = 'none'; // Oculta el boton de comprar si no tenemos productos en el carrito
         carrito.style.display = 'none';
-        document.getElementById('badge').textContent = ``;
+        badge.style.display = 'none';
         document.getElementById('total').textContent = ``;
     }
 }
@@ -160,12 +161,18 @@ function eliminarProducto(articleID) {
 function badge() {
     const userCart = JSON.parse(localStorage.getItem('userCart'));
     let totalCantidad = 0;
+    const badge = document.getElementById('badge');
 
     if (userCart && userCart.articles.length > 0) {
         userCart.articles.forEach(article => {
             totalCantidad += article.count; // Suma la cantidad de cada artículo
         });
+        localStorage.setItem('userCart', JSON.stringify(userCart))
+        document.getElementById('badge').textContent = `${totalCantidad}`; // Actualiza el badge con la cantidad total
+    } else {
+        badge.style.display = 'none'; // es para que no aparezca el cero, cuando no tenemos ningun artículo en el carrito
     }
-    localStorage.setItem('userCart', JSON.stringify(userCart))
-    document.getElementById('badge').textContent = `${totalCantidad}`; // Actualiza el badge con la cantidad total
+
 }
+
+document.addEventListener('DOMContentLoaded', badge);
