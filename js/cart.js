@@ -39,6 +39,8 @@ function showCart() {
     const botonComprar = document.getElementById('botonComprar'); // se declara para ocultar el boton, en caso de que no existan productos
     const carrito = document.getElementById('carrito');
     const badge = document.getElementById('badge');
+    const myTab = document.getElementById('myTab');
+    const resumen = document.getElementById('resumen');
 
     contenedorCarrito.innerHTML = '';
     let total = 0; // Inicializa el total
@@ -90,6 +92,9 @@ function showCart() {
         carrito.style.display = 'none';
         badge.style.display = 'none';
         document.getElementById('total').textContent = ``;
+        myTab.style.display = 'none';
+        resumen.style.display = 'none';
+
     }
 }
 
@@ -177,3 +182,8 @@ function badge() {
 }
 
 document.addEventListener('DOMContentLoaded', badge);
+
+
+
+
+
