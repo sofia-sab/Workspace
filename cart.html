@@ -9,6 +9,7 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -44,12 +45,25 @@
   </nav>
   <main>
     <div class="container">
-      <h1 id="carrito">Carrito de compras</h1>
-      <div id="productoComprar">
-        <!-- Contenedor para los productos del carrito -->
+      <h1 id="carrito">Carrito de compras</h1><br>
+      <div class="resumenCarrito">
+        <div id="productoComprar">
+          <!-- Contenedor para los productos del carrito -->
+        </div>
+        <div class="resumen">
+          <div id="resumen" class="col-3 centrado">
+            <h5>Resumen</h5>
+            <p>Subtotal:</p>
+            <hr>
+            <p id="total"></p>
+          </div>
+          <div class="centrado">
+            <br><button id="botonComprar" class="btn btn-primary">Continuar compra</button>
+          </div>
+        </div>
       </div>
-      <p id="total"></p><br><br><button id="botonComprar" class="btn btn-primary">Comprar</button>  
     </div>
+  
   </main>
   <footer class="text-muted">
     <div class="container">

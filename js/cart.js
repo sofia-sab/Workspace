@@ -49,27 +49,28 @@ function showCart() {
             const articuloDiv = document.createElement('div');
             articuloDiv.classList.add('articulo');
             articuloDiv.innerHTML = `
-                <div class="row">
-                    <div class="col-6">         
-                        <h2 class="centrado">${article.name}</h2>
+                <div class="row ">
+                    <div class="col-4">         
+                        <h4 class="centrado">${article.name}</h4>
                         <img class="auto" src="${article.image}" alt="${article.name}">
                     </div> 
-                    <div class="col-3"><br><br>
+                    <div class="col-4"><br><br>
                         <p>Precio: ${article.currency} ${article.unitCost}</p>
-                        <p>Cantidad</p>
+                        <p>Cantidad:</p>
                         <div class="cantidad">
                             <button class="btn btn-outline-secondary" type="button" onclick="menos('${article.id}')">-</button>
-                            <input type="text" id="cantidad-${article.id}" class="form-control" value="${article.count}" min="1" oninput="subtotalActualizado('${article.id}')" />
+                            <input type="text" id="cantidad-${article.id}" class="form-control inputCantidad centrado" value="${article.count}" min="1" oninput="subtotalActualizado('${article.id}')" />
                             <button class="btn btn-outline-secondary" type="button" onclick="mas('${article.id}')">+</button>
                         </div>
                         <br>
-                        <p>Subtotal: <span id="subtotal-${article.id}">${article.currency}${article.subtotal}</span></p>
+                        <p>Subtotal: <span id="subtotal-${article.id}">${article.currency} ${article.subtotal}</span></p>
                     </div> 
                     <div class="col-3"> <br> <br> 
-                    <p><a onclick="eliminarProducto('${article.id}')" href="#" id="eliminar" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Eliminar</a></p>
+                        <p><a onclick="eliminarProducto('${article.id}')" href="#" id="eliminar" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Eliminar</a></p>
                     </div>
                 </div>
-                <hr>`;
+                <hr>
+                `;
             contenedorCarrito.appendChild(articuloDiv);
 
             const subtotalActual = article.currency === 'USD' ? article.subtotal * 40 : article.subtotal

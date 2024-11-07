@@ -349,3 +349,21 @@ body.dark-mode {
   text-align: center;
   font-weight: bold;
 }
+
+#resumen{
+  background-color:ghostwhite;
+  width: 250px;
+  height: 200px;
+}
+
+.izquierda, .derecha {
+  display: inline-block;
+  margin: 10px;
+  }
+
+.resumenCarrito {
+  display: flex;
+}
+.inputCantidad {
+  width: 25%;
+}
