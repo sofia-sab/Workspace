@@ -356,14 +356,18 @@ body.dark-mode {
   height: 200px;
 }
 
-.izquierda, .derecha {
-  display: inline-block;
-  margin: 10px;
-  }
-
 .resumenCarrito {
   display: flex;
 }
+
 .inputCantidad {
   width: 25%;
+}
+
+.flex {
+  display: flex;
+}
+
+.separacion {
+  padding-left: 10px;
 }
