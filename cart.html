@@ -70,6 +70,8 @@
                 <p>Subtotal:</p>
                 <hr>
                 <p id="total"></p>
+                <br><br>
+                <p>Precio sin incluir envío</p>
               </div>
               <div class="centrado">
                 <br><button id="botonComprar" class="btn btn-primary">Continuar compra</button>
@@ -117,20 +119,22 @@
             <br><hr><br>
             <h3 class="mb-3">Elige tipo de envio</h3>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="estandar" id="estandar">
-              <label class="form-check-label" for="estandar">
+              <input class="form-check-input" type="radio" name="tipoEnvio" id="standar">
+              <label class="form-check-label" for="standar">
                 Standard 12 a 15 días (5%)
               </label>
             </div>
+            <br>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="estandar" id="estandar">
-              <label class="form-check-label" for="estandar">
+              <input class="form-check-input" type="radio" name="tipoEnvio" id="express">
+              <label class="form-check-label" for="express">
                 Express de 5 a 8 días (7%)
               </label>
             </div>
+            <br>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="estandar" id="estandar">
-              <label class="form-check-label" for="estandar">
+              <input class="form-check-input" type="radio" name="tipoEnvio" id="premium">
+              <label class="form-check-label" for="premium">
                 Premium de 2 a 5 días (15%)
               </label>
             </div>
@@ -138,7 +142,38 @@
             <button type="submit" class="btn btn-primary mt-3">Ir a pagar</button>
           </form>
         </div>
-        <div class="tab-pane fade" id="facturacion-tab-pane" role="tabpanel" aria-labelledby="facturacion-tab" tabindex="0"><br>+...</div>
+        <div class="tab-pane fade" id="facturacion-tab-pane" role="tabpanel" aria-labelledby="facturacion-tab" tabindex="0"><br>
+        <h3 class="mb-5">Elige un método de pago</h3>
+        <form action="">
+        <div class="form-check">
+              <input class="form-check-input" type="radio" name="metodoPago" id="tCredito">
+              <label class="form-check-label" for="tCredito">
+                Tarjeta de crédito
+              </label>
+            </div>
+            <br>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="metodoPago" id="tBancaria">
+              <label class="form-check-label" for="tBancaria">
+                Tranferencia bancaria
+              </label>
+            </div>
+        </form>
+        <br>
+        <div class="resumen">
+              <div id="resumen" class="col-3 centrado">
+                <h5>Resumen de tu compra</h5>
+                <hr>
+                <p>Subtotal:</p>
+                <hr>
+                <p>Total a pagar:</p>
+                <p id="total"></p>
+              </div>
+              <div class="centrado">
+                <br><button id="botonComprar" class="btn btn-primary">Finalizar compra</button>
+              </div>
+            </div>
+        </div>
     </div>
   
   </main>
