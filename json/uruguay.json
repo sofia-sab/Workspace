@@ -1,177 +1,178 @@
 [
     {
+        "departamento": "Artigas",
+        "ciudades": [
+            "Artigas", "B.Brums", "B.Union", "T. Gomensoro"
+        ]
+    },
+    {
         "departamento": "Canelones",
         "ciudades": [
-            "Canelones", "Joanico", "Santa Lucia", "Empalme", "Cerrillos", "Aguas Corrientes", 
-            "Las Piedras", "La Paz", "Mario Ferreira", "Sofia Santos", "Sauce", "Toledo Chico", 
-            "San Ramon", "San Bautista", "Est.Castellano", "Santa Rosa", "San Antonio", "Progreso", 
-            "Canelon Chico", "Est. Floresta", "Pando", "Pblo Artigas", "Empalme Olmos", "Estacion Olmos", 
-            "P. Del Toro", "Totoral Sauce", "Neptunia", "Pinamar", "Pine Park", "Salinas", "Atlantida", 
-            "Pque Del Plata", "Colonia Nicoli", "La Montanesa", "Est.Atlantida", "Est.P.Afilar", 
-            "Marindia", "Fortin S.Rosa", "Las Toscas", "Socas", "Migues", "Montes", "Capilla Cella", 
-            "Estacion Migue", "Estacion Monte", "La Tuna", "Los Titanes", "Sta.Lucia Este", "Araminda", 
-            "Biarritz", "Cuchilla Alta", "Santa Ana", "Tala", "San Jacinto", "Ruta 7 Km 45", 
-            "Jquin.Suarez", "La Floresta", "Bolivar", "Estacion Tapia", "Pedrera", "Jaureguiberry", 
-            "San Luis", "Costa Azul", "B.Horizonte", "Guazuvira", "Toledo", "Bal.Argentino", 
-            "C.Dela Costa"
-        ]
-    },
-    {
-        "departamento": "Tacuarembo",
-        "ciudades": [
-            "Tacuarembo", "P De Los Toros", "S.Gregorio", "Los Feos", "Curtina", "Sauce De Batov", 
-            "Cuch. Del Ombu", "Peralta", "Ansina", "La Hilera", "Tambores", "Achar", "Cardoso", 
-            "Laureles", "Paso D.Cerro", "Ipora", "Caraguata", "Piedra Sola"
-        ]
-    },
-    {
-        "departamento": "Salto",
-        "ciudades": [
-            "Salto", "Salto Arenitas", "Salto Dayman", "Salto Huerto", "Belen", "Constitucion", 
-            "Pueblo Albisu", "Biassini", "Celeste"
-        ]
-    },
-    {
-        "departamento": "Maldonado",
-        "ciudades": [
-            "Maldonado", "Brio.Maldonado", "Punta Del Este", "Punta Ballena", "San Carlos", 
-            "El Tesoro", "La Barra", "Manantiales", "El Chorro", "Buenos Aires", "San Vicente", 
-            "Eden Rock", "Santa Monica", "La Juanita", "Faro J.Ignacio", "Aigua", "Garzon", 
-            "Hipodromo", "El Eden", "Piriapolis", "Pan De Azucar", "Cerros Azules", "Kilometro 110", 
-            "La Capuera", "Sierras Tirol", "Ventimiglia", "Ocean Park", "Sce.Portezuelo", 
-            "Bar Portezuelo", "Punta Negra", "Punta Colorada", "Baln.Solis", "Grio.Aznarez", 
-            "Est. Solis", "Kilometro 84", "Nva.Carrara", "Est.Las Flores", "Bella Vista", "Las Flores", 
-            "Playa Verde", "Playa Hermosa", "Playa Grande"
-        ]
-    },
-    {
-        "departamento": "Rocha",
-        "ciudades": [
-            "Rocha", "Castillos", "La Pedrera", "Lascano", "La Aguada", "Chuy", "AntonioPolis", 
-            "Velazquez", "Arachania", "Cebollati", "Costa Azul", "Atlantico", "19 De Abril", 
-            "Paralle", "La Paloma", "18 De Julio", "Barra Del Chuy", "La Coronilla", "B.La Coronilla", 
-            "Barra Uruguaya", "Las Garzas", "Punta Rubia", "Atlantica", "La Esmeralda", "Santa Maria", 
-            "Puimayen"
-        ]
-    },
-    {
-        "departamento": "Treinta Y Tres",
-        "ciudades": [
-            "Treinta Y Tres", "Gl.E.Martinez", "Vergara", "Santa Clara", "Cerro Chato", "Maria Isabel", 
-            "Maria Albina", "Mendizabal U", "Villa Sara", "Valentines", "Rincon"
+            "Aguas Corrientes", "Araminda", "Atlantida", "B.Horizonte", "Bal.Argentino", "Biarritz", 
+            "Bolivar", "C.Dela Costa", "Canelon Chico", "Canelones", "Capilla Cella", "Colonia Nicoli", 
+            "Costa Azul", "Cuchilla Alta", "Empalme", "Empalme Olmos", "Est. Floresta", "Est.Atlantida", 
+            "Est.Castellano", "Est.P.Afilar", "Estacion Migue", "Estacion Monte", "Estacion Olmos", 
+            "Estacion Tapia", "Fortin S.Rosa", "Guazuvira", "Jquin.Suarez", "Jaureguiberry", 
+            "La Floresta", "La Montanesa", "La Paz", "La Tuna", "Las Piedras", "Las Toscas", "Los Titanes", 
+            "Marindia", "Mario Ferreira", "Migues", "Montes", "Neptunia", "P. Del Toro", "Pando", 
+            "Paralle", "Pedrera", "Pinamar", "Pine Park", "Pque Del Plata", "Progreso", "Pueblo Gil", 
+            "Ruta 7 Km 45", "Salinas", "San Antonio", "San Bautista", "San Jacinto", "San Luis", 
+            "San Ramon", "Santa Ana", "Santa Lucia", "Santa Rosa", "Sauce", "Sofia Santos", "Socas", 
+            "Sta.Lucia Este", "Tala", "Totoral Sauce", "Toledo", "Toledo Chico"
         ]
     },
     {
         "departamento": "Cerro Largo",
         "ciudades": [
-            "Melo", "Rio Branco", "Fraile Muerto", "Dragon", "Tupambaé", "Noblia", "Acegua", 
-            "Cerro Cuentas", "Toledo", "Tres Islas", "Esperanza", "Bdo. De Medina", "Mangrullo", 
-            "Vargas", "Nando", "Soto Goro", "Lopez Benitez", "Laguna Merin", "Angapire", "Pbdo.Uruguay"
-        ]
-    },
-    {
-        "departamento": "Rivera",
-        "ciudades": [
-            "Rivera", "Tranqueras", "Vichadero", "Lapuente", "Minas Corrales", "Lag Del Norte"
-        ]
-    },
-    {
-        "departamento": "Artigas",
-        "ciudades": [
-            "Artigas", "B.Union", "T. Gomensoro", "B.Brums"
-        ]
-    },
-    {
-        "departamento": "Paysandu",
-        "ciudades": [
-            "Paysandu", "Samaritana", "Purificacion", "Nvo Paysandu", "Porvenir", "Pay Chacras", 
-            "Guichon", "Quebracho", "Casa Blanca", "Lorenzo Geyres", "Tambures", "Piera", "P. Coloradas", 
-            "Merinos", "Morato", "Alonso", "San Felix", "Villa Maria", "Beisso", "T. Guaviyu", "T. Almiron"
-        ]
-    },
-    {
-        "departamento": "Rio Negro",
-        "ciudades": [
-            "Algorta", "Bellaco", "Fray Bentos", "Gral Borges", "Grecco", "Los Arrayanes", "Las Canas", 
-            "Nuevo Berlin", "Paso Mellizos", "Sarandi", "San Javier", "Villa Maria", "Young"
-        ]
-    },
-    {
-        "departamento": "Soriano",
-        "ciudades": [
-            "Mercedes", "Dolores", "Cardona", "Jose E. Rodo", "Palmitas", "Agraciada", "La Concordia", 
-            "Palo Solo", "Risso", "Egana", "V. Soriano", "Sta.Catalina", "Canada Nieto", "La Sirena"
+            "Acegua", "Angapire", "Bdo. De Medina", "Cerro Cuentas", "Dragon", "Esperanza", 
+            "Fraile Muerto", "Laguna Merin", "Lopez Benitez", "Mangrullo", "Melo", "Nando", 
+            "Noblia", "Pbdo.Uruguay", "Rio Branco", "Soto Goro", "Toledo", "Tres Islas", "Tupambaé", "Vargas"
         ]
     },
     {
         "departamento": "Colonia",
         "ciudades": [
-            "Colonia", "Riachuelo Ab", "Riachuelo Ar", "Estanzuela", "Miguelete", "Rosario", "Barker", 
-            "Zanja Honda", "Brisas Plata", "Santa Regina", "La Paz", "Valdense", "Los Pinos", "Fomento", 
-            "Parant", "Playa Azul", "Britopolis", "Blancarena", "Cufre", "Caramelo", "Zagarzazu", 
-            "Bal El Faro", "Pueblo Gil", "Conchillas", "R.Conchilla", "Campana", "B.Del Oeste", 
-            "Nva Palmira", "Agraciada", "N. Helvecia", "O De Lavalle", "Tarariras", "Antolin", 
-            "El Ensueño", "Santa Ana", "Artilleros", "F.Sanchez", "Juan Lacaze", "Minuano"
-        ]
-    },
-    {
-        "departamento": "San Jose",
-        "ciudades": [
-            "San Jose U", "San Jose S", "Rodriguez U", "Rodriguez S", "Ituzaingo S", "Pueblo Nuevo S", 
-            "18 De Julio S", "Capurro S", "Raigon S", "Tropezon S", "Concrodia S", "P. De Varela S", 
-            "Chamizo", "Carr. Quemada", "San Gregorio", "E. Paullier U", "E. Paullier S", "La Boyada S", 
-            "Bo. Scavino S", "C.De Pereyra", "B. De Cufre S", "Libertad U", "Libertad S", "P. De Valdez S", 
-            "R. Peraza S", "Villa Maria S", "Kil.62 R.1 S", "Kil.56 R.1 S", "Kil.75 R.3 S", "K.62 1/2 R.1 S", 
-            "R. Del Pino S", "Baln. Ordeig S", "Baln. Kiyu S", "I. Frances S", "Vista Mar S", 
-            "K.67 R.1 Rad.S", "Kil.60 R.1 S", "K.67 R.1 Diaz", "K.76.2 R.1 S", "Mal Abrigo S", 
-            "Gonzalez S", "Juan Soler S", "Laurel S", "K.77 R.3 Sanc.", "K.77 R.3 Mar.", "K.77 1/2 R.3", 
-            "Kil.78 R.3 S", "D. El Tigre S", "S. Fernando S", "P. Postel S", "Safici S", "Santa Monica S", 
-            "S. Victoria S", "K.29 Y 30 R.1", "K.30 R.1 Masc.", "Kil.34 R.1 Gue", "P. Pascual S", 
-            "A. Nacional S", "P. Penino S", "K.30 R.1 Mart.", "Monte Grande S", "K.30 R.1 Gabr.", 
-            "K.31 R.1 Bao", "K.33.8 R.1 Alb", "K.32.8 R.1 Raz", "Cer.Del Sur S"
-        ]
-    },
-    {
-        "departamento": "Flores",
-        "ciudades": [
-            "Trinidad", "I.Cortinas", "Andresito", "Andresito Viejo"
-        ]
-    },
-    {
-        "departamento": "Florida",
-        "ciudades": [
-            "Florida", "Casupa", "Fray Marcos", "Chamizo", "Reboledo", "La Cruz", "Pintado", 
-            "Nico Perez", "Valentines", "Mendoza Grande", "Mendoza Chico", "Mansavillagra", 
-            "Cap.Sauce", "Polanco Yi", "Cerro Chato", "A.Gallinal", "Sarandi Gde", "Goni", 
-            "Puntas Maciel", "25 De Mayo", "25-Ago", "Cardal", "Independencia", "Illescas"
-        ]
-    },
-    {
-        "departamento": "Lavalleja",
-        "ciudades": [
-            "Minas", "Marco D.Reyes", "S.Fco.Sierras", "Solis", "Blle.Ordonez", "Illescas", 
-            "Pirajara", "Villa Serrana", "Mariscala", "Colon", "J.P.Varela", "Zapican", "Estacion Solis"
+            "Agraciada", "Antolin", "Artilleros", "Bal El Faro", "Barker", "Blancarena", 
+            "Brisas Plata", "Britopolis", "Campana", "Caramelo", "Colonia", "Conchillas", "Cufre", 
+            "El Ensueño", "Estanzuela", "Fomento", "F.Sanchez", "Juan Lacaze", "La Paz", "Los Pinos", 
+            "Miguelete", "Minuano", "N. Helvecia", "Nva Palmira", "O De Lavalle", "Parant", 
+            "Playa Azul", "R.Conchilla", "Riachuelo Ab", "Riachuelo Ar", "Rosario", "Santa Ana", 
+            "Santa Regina", "Tarariras", "Valdense", "Zagarzazu", "Zanja Honda"
         ]
     },
     {
         "departamento": "Durazno",
         "ciudades": [
-            "Durazno", "Sarandi Del Yi", "Carmen", "La Paloma", "Blanquillo", "Rossell Y Rius", 
-            "C. Reyles", "Centenario", "Cerro Chato", "San Jorge"
+            "Blanquillo", "C. Reyles", "Carmen", "Centenario", "Cerro Chato", "Durazno", 
+            "La Paloma", "Rossell Y Rius", "San Jorge", "Sarandi Del Yi"
+        ]
+    },
+    {
+        "departamento": "Flores",
+        "ciudades": [
+            "Andresito", "Andresito Viejo", "I.Cortinas", "Trinidad"
+        ]
+    },
+    {
+        "departamento": "Florida",
+        "ciudades": [
+            "25 De Mayo", "25-Ago", "A.Gallinal", "Cap.Sauce", "Cardal", "Casupa", "Chamizo", 
+            "Cerro Chato", "Fray Marcos", "Goni", "Illescas", "Independencia", "La Cruz", "Mansavillagra", 
+            "Mendoza Chico", "Mendoza Grande", "Nico Perez", "Pintado", "Polanco Yi", "Puntas Maciel", 
+            "Reboledo", "Sarandi Gde", "Valentines"
+        ]
+    },
+    {
+        "departamento": "Lavalleja",
+        "ciudades": [
+            "Blle.Ordonez", "Colon", "Estacion Solis", "Illescas", "J.P.Varela", "Mariscala", 
+            "Marco D.Reyes", "Minas", "Pirajara", "S.Fco.Sierras", "Solis", "Villa Serrana", "Zapican"
+        ]
+    },
+    {
+        "departamento": "Maldonado",
+        "ciudades": [
+            "Aigua", "Baln.Solis", "Bar Portezuelo", "Bella Vista", "Brio.Maldonado", "Buenos Aires", 
+            "Cerros Azules", "Eden Rock", "El Chorro", "El Eden", "El Tesoro", "Est. Solis", 
+            "Faro J.Ignacio", "Garzon", "Grio.Aznarez", "Hipodromo", "Kilometro 110", "Kilometro 84", 
+            "La Barra", "La Capuera", "La Juanita", "La Punta", "Maldonado", "Manantiales", 
+            "Nva.Carrara", "Ocean Park", "Pan De Azucar", "Piriapolis", "Playa Grande", 
+            "Playa Hermosa", "Playa Verde", "Pque Del Plata", "Pueblo Gil", "Pueblo Gil", 
+            "Punta Ballena", "Punta Carretas", "Punta Del Este", "Punta Negra", "Rossell Y Rius", 
+            "San Carlos", "San Vicente", "Santa Monica", "Sierras Tirol", "Solanas"
         ]
     },
     {
         "departamento": "Montevideo",
         "ciudades": [
-            "Aires Puros", "Alfonsina Storni", "Atahualpa", "Banos De Carrasco", "Barrio Sur", 
-            "Barros Blancos", "Bellevue", "Belvedere", "Bella Vista", "Brazo Oriental", "Buceo", 
-            "Capurro, Bella Vista", "Carrasco", "Carrasco Norte", "Casabo, Pajas Blancas", "Casavalle", 
-            "Centro", "Cerrito", "Cerrito De La Victoria", "Ciudad Vieja", "Colon Sureste, Abayuba", 
-            "Cordon", "Conciliacion", "La Blanqueada", "La Comercial", "La Figura", "La Paloma, Tomkinson", 
-            "La Teja", "Larranaga", "Lezica, Melilla", "Malvin", "Malvin Norte", "Manga", "Manga, Toledo Chico", 
-            "Maronas, Parque Guarani", "Mercado Modelo, Bolivar", "Montevideo Rural", "Nueva Paris", 
-            "Palermo", "Paso De Las Duranas", "Paso De La Arena", "Pocitos", "Punta Carretas", "Punta Gorda", 
-            "Prado, Nueva Savona", "Reducto", "Sayago", "Sayanagas", "Solas Unicado"
+            "Abayuba", "Aguada", "Aires Puros", "Arroyo Seco", "Atahualpa", "Barrio Sur", "Bella Vista", 
+            "Belvedere", "Brazo Oriental", "Buceo", "Capurro", "Carrasco", "Casabo", "Centro", "Cerro", 
+            "Ciudad Vieja", "Colon", "Cordón", "Jacinto Vera", "Jardin Botanico", "La Blanqueada", 
+            "La Comercial", "La Figurita", "La Paloma", "La Teja", "Larrañaga", "Lezica", "Malvin", 
+            "Malvin Norte", "Manga", "Maroñas", "Nuevo Paris", "Palermo", "Parque Battle", "Parque Rodo", 
+            "Pocitos", "Pocitos Nuevo", "Prado", "Punta Carretas", "Punta Gorda", "Reducto", "Sayago", 
+            "Tres Cruces", "Union", "Villa Española", "Villa Garcia"
+        ]
+    },
+    {
+        "departamento": "Paysandu",
+        "ciudades": [
+            "Alonso", "Beisso", "Casa Blanca", "Guichon", "Lorenzo Geyres", "Merinos", 
+            "Morato", "Nvo Paysandu", "Pay Chacras", "Paysandu", "Piera", "Porvenir", 
+            "Purificacion", "Quebracho", "Samaritana", "San Felix", "T. Almiron", "T. Guaviyu", 
+            "Tambures", "Villa Maria"
+        ]
+    },
+    {
+        "departamento": "Rio Negro",
+        "ciudades": [
+            "Algorta", "Bellaco", "Fray Bentos", "Gral Borges", "Grecco", "Las Canas", 
+            "Los Arrayanes", "Nuevo Berlin", "Paso Mellizos", "San Javier", "Sarandi", 
+            "Villa Maria", "Young"
+        ]
+    },
+    {
+        "departamento": "Rivera",
+        "ciudades": [
+            "Lag Del Norte", "Lapuente", "Minas Corrales", "Rivera", "Tranqueras", "Vichadero"
+        ]
+    },
+    {
+        "departamento": "Rocha",
+        "ciudades": [
+            "19 De Abril", "18 De Julio", "AntonioPolis", "Arachania", "Atlantico", "Atlantica", 
+            "Arachania", "B.La Coronilla", "Barra Del Chuy", "Barra Uruguaya", "Belen", "Biassini", 
+            "Castillos", "Cebollati", "Chuy", "Constitucion", "Costa Azul", "El Eden", "Guazuvira", 
+            "Jaureguiberry", "La Aguada", "La Barra", "La Coronilla", "La Esmeralda", "La Paloma", 
+            "La Pedrera", "Lascano", "Lomas De Solymar", "Los Titanes", "Neptunia", "P.De Solis", 
+            "Punta Del Este", "Punta Rubia", "Pueblo Albisu", "Puimayen", "San Antonio", 
+            "San Bautista", "San Jacinto", "San Ramon", "Santa Maria", "Santa Monica", "Sauce", 
+            "Socas", "Sofia Santos", "Solanas", "Sta.Lucia Este", "Tala", "Totoral Sauce", "Toledo", 
+            "Toledo Chico", "Velazquez", "Zanja Honda"
+        ]
+    },
+    {
+        "departamento": "Salto",
+        "ciudades": [
+            "Belen", "Biassini", "Celeste", "Constitucion", "Pueblo Albisu", "Salto", 
+            "San Antonio", "Santa Maria", "Sauce", "Solanas", "Socas", "Tomas Gomensoro"
+        ]
+    },
+    {
+        "departamento": "San Jose",
+        "ciudades": [
+            "B.Celeste", "Capurro", "Chamizo", "Constitucion", "Ecilda Paullier", "I.Pacheco", 
+            "I.Rivas", "Kiyu", "Libertad", "Mal Abrigo", "Mangrullo", "Montevideo Chico", 
+            "N.Germania", "P.A.Pires", "P.Gallinal", "P.Garcia", "P.Rodriguez", "Playa Pascual", 
+            "Radial", "Rafael Perazza", "Raigon", "Rodriguez", "San Gregorio", "San Jose", 
+            "S.J.Baja", "S.J.Major", "S.Luis Solis", "Tala", "V.Aristocrata", "V.Garcia", "Villa Maria"
+        ]
+    },
+    {
+        "departamento": "Soriano",
+        "ciudades": [
+            "Arenal Grande", "Bofeta", "Cardona", "Castillos", "Cerro Alegre", "Dolores", 
+            "El Tala", "Guerrero", "La Concordia", "Mercedes", "Mercedes", "Nuevo Berlin", 
+            "Palmitas", "Peralta", "Rodriguez", "S.Lucia Solis", "San Martin", "Santa Catalina", 
+            "Soriano", "Tala", "Tupambaé", "Villa Soriano", "Yacaré", "Yacaré", "Zapican"
+        ]
+    },
+    {
+        "departamento": "Tacuarembo",
+        "ciudades": [
+            "Achar", "Amorquin", "Ansina", "Balneario", "Barcelonia", "Batovi", 
+            "Caraguata", "Cuchilla De Sau", "Curtina", "Fraile Muerto", "Montevideo Chico", 
+            "Nico Batovi", "Paso De La Arena", "Peralta", "Punta Batovi", "San Gregorio", 
+            "San Rafael", "Santiago Batovi", "Sopas", "Tacuarembo", "Tambores"
+        ]
+    },
+    {
+        "departamento": "Treinta y Tres",
+        "ciudades": [
+            "Algorta", "Bellaco", "Biassini", "Centro", "Cerro Alegre", "Gerrero", 
+            "Joaquin Suare", "Jose Pedro Varela", "La Pedrera", "Minas Corrales", 
+            "Montevideo Chico", "Nuevo Berlin", "Palmitas", "Santa Lucia", "Santo Domingo", 
+            "Sarandi", "Socas", "Solanas", "Toledo Chico", "Tranqueras", "Treinta y Tres"
         ]
     }
 ]
