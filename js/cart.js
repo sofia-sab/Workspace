@@ -184,6 +184,66 @@ function badge() {
 document.addEventListener('DOMContentLoaded', badge);
 
 
+document.addEventListener('DOMContentLoaded', function() {
+    // Cargar el archivo JSON usando fetch
+    fetch('json/uruguay.json')
+    .then(response => {
+        if (!response.ok) {
+        throw new Error('No se pudo cargar el archivo JSON');
+        }
+        return response.json(); // Convertir la respuesta en formato JSON
+    })
+    .then(data => {
+        console.log(data); 
+        cargarDepartamentos(data);
+    })
+    .catch(error => {
+        console.error('Error al cargar el archivo JSON:', error);
+    });
+});
 
+  // Función para cargar los departamentos en el select
+    function cargarDepartamentos(data) {
+    const departamentoSelect = document.getElementById('departamento'); // Obtener el select de departamentos
+    const localidadSelect = document.getElementById('localidad');
 
+    // Limpiar el select antes de llenarlo (si hay opciones previas)
+    departamentoSelect.innerHTML = '<option value="">Seleccione su departamento</option>';
+    localidadSelect.innerHTML = '<option value="">Seleccione su localidad</option>';
 
+    // Recorrer los departamentos y agregarlos como opciones en el select
+    data.forEach(item => {
+    const option = document.createElement('option');
+    option.value = item.departamento;
+    option.textContent = item.departamento;
+    departamentoSelect.appendChild(option);
+    });
+
+    // Llamar a la función para actualizar las localidades cuando se selecciona un departamento
+    departamentoSelect.addEventListener('change', function() {
+    cargarLocalidades(data);
+    });
+}
+
+  // Función para cargar las localidades según el departamento seleccionado
+    function cargarLocalidades(data) {
+    const departamentoSelect = document.getElementById('departamento');
+    const localidadSelect = document.getElementById('localidad');
+
+    // Limpiar el select de localidades antes de llenarlo
+    localidadSelect.innerHTML = '<option value="">Seleccione su localidad</option>';
+
+    // Obtener las ciudades del departamento seleccionado
+    const departamento = departamentoSelect.value;
+    const departamentoData = data.find(item => item.departamento === departamento);
+
+    if (departamentoData) {
+      // Agregar las ciudades del departamento seleccionado al select de localidades
+    departamentoData.ciudades.forEach(ciudad => {
+        const option = document.createElement('option');
+        option.value = ciudad;
+        option.textContent = ciudad;
+        localidadSelect.appendChild(option);
+    });
+}
+}
