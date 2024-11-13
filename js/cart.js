@@ -247,3 +247,19 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 }
 }
+
+// Tabs 
+
+document.getElementById("botonComprar").addEventListener("click", () => {
+    var direccionTab = new bootstrap.Tab(document.getElementById("nav-direccion-tab"));
+    direccionTab.show();
+});
+
+document.getElementById("btnIrAPagar").addEventListener("click", (event) => {
+    event.preventDefault();
+
+    var facturacionTab = new bootstrap.Tab(document.getElementById("nav-facturacion-tab"));
+    facturacionTab.show();
+});
+
+

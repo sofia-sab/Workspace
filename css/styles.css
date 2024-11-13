@@ -338,6 +338,23 @@ body.dark-mode {
 .dark-mode .list-group-item{
   background-color: #333;
   color: white ;
+  border-color: gray;
+}
+
+.dark-mode .card {
+background-color: #353333;
+color: white;
+border-color: gray;
+}
+
+.dark-mode #resumen {
+background-color: rgb(88, 85, 85);
+color: white;
+}
+
+.dark-mode .btn {
+background-color: #353333;
+color: white;
 }
 
 /* Botones de aumentar y disminuir cantidad */
@@ -354,6 +371,11 @@ body.dark-mode {
   background-color:ghostwhite;
   width: 250px;
   height: 200px;
+  border-color: #807c7c;
+  border-radius: 5%;
+  border: solid 1px skyblue;
+  border:#817c7c;
+  border-width: 1px;
 }
 
 .resumenCarrito {
@@ -370,4 +392,8 @@ body.dark-mode {
 
 .separacion {
   padding-left: 10px;
+}
+
+.margen {
+  margin-left: 5%;
 }
