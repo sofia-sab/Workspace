@@ -103,15 +103,14 @@
             </div>
           <h4 class="mb-4 mt-4">Datos de envío</h4>
           <form>
-            <div class="flex">
-              <div class="mb-3">
-                <label for="departamento" class="form-label">Departamento</label>
-                <select id="departamento" class="form-select">
-                </select>
-              </div>  
+          <div class="flex">
+            <div class="mb-3">
+              <label for="departamento" class="form-label">Departamento</label>
+              <select id="departamento" class="form-select"></select>
+            </div>  
             <div class="mb-3 separacion">
               <label for="localidad" class="form-label">Localidad</label>
-              <select id="localidad" class="form-select">
+              <select id="localidad" class="form-select"></select>
             </div>
           </div>
             <div class="mb-3">
@@ -129,31 +128,25 @@
             <br><hr><br>
             <h3 class="mb-3">Elige tipo de envio</h3>
             <div class="flex">
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="tipoEnvio" id="standard">
-              <label class="form-check-label" for="standard">
-                Standard 12 a 15 días (5%)
-              </label>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="tipoEnvio" id="standard">
+                <label class="form-check-label" for="standard">Standard 12 a 15 días (5%)</label>
+              </div>
+              <br>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="tipoEnvio" id="express">
+                <label class="form-check-label" for="express">Express de 5 a 8 días (7%)</label>
+              </div>
+              <br>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="tipoEnvio" id="premium">
+                <label class="form-check-label" for="premium">Premium de 2 a 5 días (15%)</label>
+              </div>
             </div>
-            <br>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="tipoEnvio" id="express">
-              <label class="form-check-label" for="express">
-                Express de 5 a 8 días (7%)
-              </label>
-            </div>
-            <br>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="tipoEnvio" id="premium">
-              <label class="form-check-label" for="premium">
-                Premium de 2 a 5 días (15%)
-              </label>
-            </div>
-          </div>
             <button id="btnIrAPagar" type="submit" class="btn btn-primary mt-3">Ir a pagar</button>
           </form>
         </div>
-        </div>
+      </div>
 
         <!-- Nav Facturacion -->
         <div class="tab-pane fade margen" id="nav-facturacion" role="tabpanel" aria-labelledby="nav-facturacion-tab" tabindex="0"><br>
