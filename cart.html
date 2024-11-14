@@ -83,7 +83,7 @@
         <div class="tab-pane fade" id="nav-direccion" role="tabpanel" aria-labelledby="nav-direccion-tab" tabindex="0"><br>
           <div class="margen">
             <h4 class="mb-3">Elige tipo de envio</h4>
-            <form id="form-dirección" method="post">
+            <form id="form-direccion" method="post">
             <div class="flex">
               <div class="form-check">
                 <input class="form-check-input" type="radio" name="tipoEnvio" id="standard">
@@ -136,7 +136,7 @@
         <!-- Nav Facturacion -->
         <div class="tab-pane fade margen" id="nav-facturacion" role="tabpanel" aria-labelledby="nav-facturacion-tab" tabindex="0"><br>
           <h3 class="mb-5">Elige un método de pago</h3>
-          <form>
+          <form id="form-facturacion" method="post">
             <div class="form-check">
               <input class="form-check-input" type="radio" name="metodoPago" id="tCredito">
               <label class="form-check-label" for="tCredito">
@@ -167,7 +167,7 @@
               <p id="total"></p>
             </div>
             <div class="centrado">
-              <br><button id="botonComprar" class="btn btn-primary">Finalizar compra</button>
+              <br><button id="botonComprar" type="submit" class="btn btn-primary">Finalizar compra</button>
             </div>  
           </div>
         </div>
