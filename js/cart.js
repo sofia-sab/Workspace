@@ -262,4 +262,5 @@ document.getElementById("btnIrAPagar").addEventListener("click", (event) => {
     facturacionTab.show();
 });
 
+const calle = document.getElementById("calle")
 
