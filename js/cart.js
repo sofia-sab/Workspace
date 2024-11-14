@@ -249,18 +249,139 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 // Tabs 
-
+// Escuchar el evento click en el botón "Comprar"
 document.getElementById("botonComprar").addEventListener("click", () => {
     var direccionTab = new bootstrap.Tab(document.getElementById("nav-direccion-tab"));
     direccionTab.show();
 });
 
-document.getElementById("btnIrAPagar").addEventListener("click", (event) => {
-    event.preventDefault();
 
+document.getElementById("btnIrAPagar").addEventListener("click", (event) => {
+    event.preventDefault();  
+
+    const formDireccion = document.getElementById('form-direccion');
+    const departamento = document.getElementById('departamento');
+    const localidad = document.getElementById('localidad');
+    const calle = document.getElementById("calle");
+    const esquina = document.getElementById('esquina');
+    const numero = document.getElementById('numero');
+    const standard = document.getElementById('standard');
+    const express = document.getElementById('express');
+    const premium = document.getElementById('premium');
+
+    let error = false;
+
+    if (calle.value === "") {
+        calle.classList.add("is-invalid");
+        error = true;
+    }
+    if (esquina.value === "") {
+        esquina.classList.add("is-invalid");
+        error = true;
+    }
+    if (numero.value === "") {
+        numero.classList.add("is-invalid");
+        error = true;
+    }
+    if (departamento.value === "") {
+        departamento.classList.add("is-invalid");
+        error = true;
+    }
+    if (localidad.value === "") {
+        localidad.classList.add("is-invalid");
+        error = true;
+    }
+    if (!standard.checked && !express.checked && !premium.checked) {
+        if (standard) standard.classList.add("is-invalid");
+        if (express) express.classList.add("is-invalid");
+        if (premium) premium.classList.add("is-invalid");
+        error = true;
+    }
+
+    // Si hay errores, no enviar el formulario ni cambiar de pestaña
+    if (error) {
+        return;
+    }
+
+    // Si todo está bien, cambiar de pestaña a la de Facturación
     var facturacionTab = new bootstrap.Tab(document.getElementById("nav-facturacion-tab"));
     facturacionTab.show();
 });
 
-const calle = document.getElementById("calle")
 
+// document.getElementById("botonComprar").addEventListener("click", () => {
+//     var direccionTab = new bootstrap.Tab(document.getElementById("nav-direccion-tab"));
+//     direccionTab.show();
+// });
+
+// document.getElementById("btnIrAPagar").addEventListener("click", (event) => {
+//     event.preventDefault();
+//     document.getElementById('form-dirección').addEventListener('submit', ()=> { 
+//         const formDireccion = document.getElementById('form-direccion');
+//         const departamento = document.getElementById('departamento');
+//         const localidad = document.getElementById('localidad');
+//         const calle = document.getElementById("calle");
+//         const esquina = document.getElementById('esquina');
+//         const numero = document.getElementById('numero');
+//         const standard = document.getElementById('standard');
+//         const express = document.getElementById('express');
+//         const premium = document.getElementById('premium');
+//         if(formDireccion){
+//             if (calle.value === ""){
+//                 alert('Por favor, complete este campo');
+//             } 
+//             if (esquina.value===""){
+//                 alert('Por favor, complete este campo');
+//             }
+//             if (numero.value===""){
+//                 alert('Por favor, complete este campo');
+//             }
+//             if (departamento.value===""){
+//                 alert('Por favor, complete este campo')
+//             }
+//             if (localidad.value===""){
+//                 alert('Por favor, complete este campo')
+//             }
+//             if (!standard.value || !express.value || !premium.value){
+//                 alert('Por favor, complete este campo')
+//             }
+//         } else {
+//             var facturacionTab = new bootstrap.Tab(document.getElementById("nav-facturacion-tab"));
+//             facturacionTab.show();
+//         } 
+//         });
+
+// });
+
+
+// document.getElementById('form-dirección').addEventListener('submit', ()=> { 
+    
+// const departamento = document.getElementById('departamento');
+// const localidad = document.getElementById('localidad');
+// const calle = document.getElementById("calle");
+// const esquina = document.getElementById('esquina');
+// const numero = document.getElementById('numero');
+// const standard = document.getElementById('standard');
+// const express = document.getElementById('express');
+// const premium = document.getElementById('premium');
+
+//     if (calle.value === ""){
+//         alert('Por favor, complete este campo');
+//     } 
+//     if (esquina.value===""){
+//         alert('Por favor, complete este campo');
+//     }
+//     if (numero.value===""){
+//         alert('Por favor, complete este campo');
+//     }
+//     if (departamento.value===""){
+//         alert('Por favor, complete este campo')
+//     }
+//     if (localidad.value===""){
+//         alert('Por favor, complete este campo')
+//     }
+//     if (!standard.value || !express.value || !premium.value){
+//         alert('Por favor, complete este campo')
+//     }
+    
+// });
