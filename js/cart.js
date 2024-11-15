@@ -41,12 +41,7 @@ function showCart() {
     const badge = document.getElementById('badge');
     const myTab = document.getElementById('myTab');
     const resumen = document.querySelectorAll('.resumen');
-
-    // const navTab = document.getElementById('nav-tab');
-    // const navCarritoTab = document.getElementById('nav-carrito-tab');
-    // const navDireccionTab = document.getElementById('nav-direccion-tab');
-    // const navFacturacionTab = document.getElementById('nav-facturacion-tab');
-    // const tabContent = document.getElementById('nav-tabContent');
+    
 
     contenedorCarrito.innerHTML = '';
     let total = 0; // Inicializa el total
@@ -103,9 +98,6 @@ function showCart() {
         document.getElementById('total').textContent = ``;
         myTab.style.display = 'none';
         resumen.style.display = 'none';
-        // navTab.style.display = 'none';
-        // navCarritoTab.style.display= 'none';
-        // tabContent.style.display='none';
 
 
     }
@@ -159,7 +151,7 @@ function calcularTotal(cart) {
         }
         total += subtotalActual;
     });
-    document.getElementById('total').textContent = `Total: UYU ${total}`; 
+    document.querySelectorAll('total').textContent = `Total: UYU ${total}`; 
 }
 
 function eliminarProducto(articleID) {
@@ -347,5 +339,40 @@ document.getElementById("btn-finalizarCompra").addEventListener("click", (event)
 
 }});
     
+function costoDeEnvio() {
+    const standard = document.getElementById('standard');
+    const express = document.getElementById('express');
+    const premium = document.getElementById('premium');
+    const costoDeEnvioElement = document.getElementById('costoDeEnvio');
+    const totalElement = document.getElementById('total'); // Asegúrate de que este ID se corresponda con el elemento que muestra el total
+
+    // Obtener el total de la compra desde el elemento HTML (que muestra el total)
+    const totalCompra = parseFloat(totalElement.textContent.replace('Total: UYU ', '').trim()); // Elimina 'Total: UYU' y convierte a número
+
+    let costoEnvio = 0;
+
+    // Calcular el costo de envío según el tipo seleccionado
+    if (standard.checked) {
+        costoEnvio = totalCompra * 0.05; 
+    } else if (express.checked) {
+        costoEnvio = totalCompra * 0.07; 
+    } else if (premium.checked) {
+        costoEnvio = totalCompra * 0.15; 
+    }
+
+    // Actualizar el valor del costo de envío
+    costoDeEnvioElement.innerHTML = `Envío: UYU ${costoEnvio}`; // Mostrar el costo con 2 decimales
+}
+
+// Llamar a costoDeEnvio cuando el documento esté listo
+document.addEventListener('DOMContentLoaded', function () {
+    costoDeEnvio(); // Actualizar el costo de envío al cargar la página
+
+    // Llamar a la función cada vez que se cambie la opción de envío
+    document.getElementById('standard').addEventListener('change', costoDeEnvio);
+    document.getElementById('express').addEventListener('change', costoDeEnvio);
+    document.getElementById('premium').addEventListener('change', costoDeEnvio);
+});
+
     
-      
+// function totalConEnvio
