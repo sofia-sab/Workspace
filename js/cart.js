@@ -41,6 +41,11 @@ function showCart() {
     const badge = document.getElementById('badge');
     const myTab = document.getElementById('myTab');
     const resumen = document.getElementById('resumen');
+    // const navTab = document.getElementById('nav-tab');
+    // const navCarritoTab = document.getElementById('nav-carrito-tab');
+    // const navDireccionTab = document.getElementById('nav-direccion-tab');
+    // const navFacturacionTab = document.getElementById('nav-facturacion-tab');
+    // const tabContent = document.getElementById('nav-tabContent');
 
     contenedorCarrito.innerHTML = '';
     let total = 0; // Inicializa el total
@@ -94,6 +99,10 @@ function showCart() {
         document.getElementById('total').textContent = ``;
         myTab.style.display = 'none';
         resumen.style.display = 'none';
+        // navTab.style.display = 'none';
+        // navCarritoTab.style.display= 'none';
+        // tabContent.style.display='none';
+
 
     }
 }
@@ -298,13 +307,11 @@ document.getElementById("btnIrAPagar").addEventListener("click", (event) => {
         error = true;
     }
 
-    // Si hay errores, no enviar el formulario ni cambiar de pestaña
     if (error) {
         Swal.fire("Por favor, complete todos los campos antes de continuar");
         return;
     }
 
-    // Si todo está bien, cambiar de pestaña a la de Facturación
     var facturacionTab = new bootstrap.Tab(document.getElementById("nav-facturacion-tab"));
     facturacionTab.show();
 });
@@ -317,8 +324,8 @@ document.getElementById("btn-finalizarCompra").addEventListener("click", (event)
     
     let error = false;
     if (!tCredito.checked && !tBancaria.checked) {
-        if (tCredito) standard.classList.add("is-invalid");
-        if (tBancaria) express.classList.add("is-invalid");
+        if (tCredito) tCredito.classList.add("is-invalid");
+        if (tBancaria) tBancaria.classList.add("is-invalid");
         error=true;
     }
     if (error){
@@ -329,8 +336,11 @@ document.getElementById("btn-finalizarCompra").addEventListener("click", (event)
             text: "Su compra ha sido realizada exitosamente",
             icon: "success"
         });
+        localStorage.removeItem('userCart');
+        
         var carritoTab = new bootstrap.Tab(document.getElementById("nav-carrito-tab"));
         carritoTab.show();
+
 }});
     
     
