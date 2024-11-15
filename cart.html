@@ -10,7 +10,6 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -61,9 +60,7 @@
         <!-- Nav carrito -->
         <div class="tab-pane fade show active" id="nav-carrito" role="tabpanel" aria-labelledby="nav-carrito-tab" tabindex="0"><br>
           <div class="resumenCarrito">
-            <div id="productoComprar">
-              <!-- Contenedor para los articulos del carrito -->
-            </div>
+            <div id="productoComprar"><!-- Contenedor para los articulos del carrito --></div>
             <div class="resumen">
               <div id="resumen" class="col-3 centrado">
                 <h5>Resumen</h5>
@@ -88,6 +85,7 @@
               <div class="form-check">
                 <input class="form-check-input" type="radio" name="tipoEnvio" id="standard">
                 <label class="form-check-label" for="standard">Standard 12 a 15 días (5%)</label>
+                <div class="invalid-feedback">Por favor, ingrese tipo de envío</div>
               </div>
               <br>
               <div class="form-check">
@@ -107,49 +105,49 @@
             <div class="mb-3">
               <label for="departamento" class="form-label">Departamento</label>
               <select id="departamento" class="form-select"></select>
+              <div class="invalid-feedback">Por favor, ingrese su departamento</div>
             </div>  
             <div class="mb-3 separacion">
               <label for="localidad" class="form-label">Localidad</label>
               <select id="localidad" class="form-select"></select>
+              <div class="invalid-feedback">Por favor, ingrese su localidad</div>
             </div>
           </div>
             <div class="mb-3">
               <label for="calle" class="form-label">Calle</label>
               <input type="text" class="form-control" id="calle">
+              <div class="invalid-feedback">Por favor, ingrese su calle</div>
             </div>
             <div class="mb-3">
               <label for="esquina" class="form-label">Esquina</label>
               <input type="text" class="form-control" id="esquina">
+              <div class="invalid-feedback">Por favor, ingrese su esquina</div>
             </div>
             <div class="mb-3">
               <label for="numero" class="form-label">Número de puerta</label>
               <input type="text" class="form-control" id="numero" minlength="4">
+              <div class="invalid-feedback">Por favor, ingrese su número de puerta</div>
             </div>
             <br><hr><br>
-            
-           
             <button id="btnIrAPagar" type="submit" class="btn btn-primary mt-3">Ir a pagar</button>
           </form>
         </div>
       </div>
 
-        <!-- Nav Facturacion -->
+      <!-- Nav Facturacion -->
         <div class="tab-pane fade margen" id="nav-facturacion" role="tabpanel" aria-labelledby="nav-facturacion-tab" tabindex="0"><br>
           <h3 class="mb-5">Elige un método de pago</h3>
           <form id="form-facturacion" method="post">
             <div class="form-check">
               <input class="form-check-input" type="radio" name="metodoPago" id="tCredito">
-              <label class="form-check-label" for="tCredito">
-                Tarjeta de crédito
-              </label>
+              <label class="form-check-label" for="tCredito">Tarjeta de crédito</label>
             </div>
             <br>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="metodoPago" id="tBancaria">
-              <label class="form-check-label" for="tBancaria">
-                Tranferencia bancaria
-              </label>
+              <label class="form-check-label" for="tBancaria">Tranferencia bancaria</label>
             </div>
+            <div class="invalid-feedback">Por favor, ingrese su método de pago</div>
           </form>
           <br>
           <div class="resumen">
@@ -161,153 +159,23 @@
                 <p>Costo de envio:</p>
               </div>
               <hr>
-         
-   
-           <p>Total a pagar:</p>
+              <p>Total a pagar:</p>
               <p id="total"></p>
             </div>
             <div class="centrado">
-              <br><button id="botonComprar" type="submit" class="btn btn-primary">Finalizar compra</button>
+              <br><button id="btn-finalizarCompra" type="submit" class="btn btn-primary">Finalizar compra</button>
             </div>  
           </div>
         </div>
     </div>
- 
   </main>
 
-
-
-  <!-- <main>
-    <div class="container">
-      <h1 id="carrito">Carrito de compras</h1><br>
-      <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item" role="presentation">
-          <button class="nav-link active" id="carrito-tab" data-bs-toggle="tab" data-bs-target="#carrito-tab-pane" type="button" role="tab" aria-controls="carrito-tab-pane" aria-selected="true">Carrito</button>
-        </li>
-        <li class="nav-item" role="presentation">
-          <button class="nav-link" id="direccion-tab" data-bs-toggle="tab" data-bs-target="#direccion-tab-pane" type="button" role="tab" aria-controls="direccion-tab-pane" aria-selected="false">Dirección de envío</button>
-        </li>
-        <li class="nav-item" role="presentation">
-          <button class="nav-link" id="facturacion-tab" data-bs-toggle="tab" data-bs-target="#facturacion-tab-pane" type="button" role="tab" aria-controls="facturacion-tab-pane" aria-selected="false">Facturación</button>
-        </li>
-      </ul>
-      <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="carrito-tab-pane" role="tabpanel" aria-labelledby="carrito-tab" tabindex="0"><br>
-          <div class="resumenCarrito">
-            <div id="productoComprar">
-             Contenedor para los productos del carrito 
-            </div>
-            <div class="resumen">
-              <div id="resumen" class="col-3 centrado">
-                <h5>Resumen</h5>
-                <p>Subtotal:</p>
-                <hr>
-                <p id="total"></p>
-                <br><br>
-                <p>Precio sin incluir envío</p>
-              </div>
-              <div class="centrado">
-                <br><button id="botonComprar" class="btn btn-primary">Continuar compra</button>
-              </div>
-            </div>
-          </div>
-          
-        </div>
-
-        <div class="tab-pane fade" id="direccion-tab-pane" role="tabpanel" aria-labelledby="direccion-tab" tabindex="0"><br>
-          <h3 class="mb-5">Datos de envío</h3>
-          <form>
-            <div class="flex">
-            <div class="mb-3">
-              <label for="departamento" class="form-label">Departamento</label>
-              <select id="departamento" class="form-select">
-              </select>
-            </div>
-            <div class="mb-3 separacion">
-              <label for="localidad" class="form-label">Localidad</label>
-              <select id="localidad" class="form-select">
-              </select>
-            </div>
-          </div>
-            <div class="mb-3">
-              <label for="calle" class="form-label">Calle</label>
-              <input type="text" class="form-control" id="calle">
-            </div>
-            <div class="mb-3">
-              <label for="esquina" class="form-label">Esquina</label>
-              <input type="text" class="form-control" id="esquina">
-            </div>
-            <div class="mb-3">
-              <label for="numero" class="form-label">Número de puerta</label>
-              <input type="text" class="form-control" id="numero" minlength="4">
-            </div>
-            <br><hr><br>
-            <h3 class="mb-3">Elige tipo de envio</h3>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="tipoEnvio" id="standar">
-              <label class="form-check-label" for="standar">
-                Standard 12 a 15 días (5%)
-              </label>
-            </div>
-            <br>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="tipoEnvio" id="express">
-              <label class="form-check-label" for="express">
-                Express de 5 a 8 días (7%)
-              </label>
-            </div>
-            <br>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="tipoEnvio" id="premium">
-              <label class="form-check-label" for="premium">
-                Premium de 2 a 5 días (15%)
-              </label>
-            </div>
-
-            <button type="submit" class="btn btn-primary mt-3">Ir a pagar</button>
-          </form>
-        </div>
-        <div class="tab-pane fade" id="facturacion-tab-pane" role="tabpanel" aria-labelledby="facturacion-tab" tabindex="0"><br>
-        <h3 class="mb-5">Elige un método de pago</h3>
-        <form action="">
-        <div class="form-check">
-              <input class="form-check-input" type="radio" name="metodoPago" id="tCredito">
-              <label class="form-check-label" for="tCredito">
-                Tarjeta de crédito
-              </label>
-            </div>
-            <br>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="metodoPago" id="tBancaria">
-              <label class="form-check-label" for="tBancaria">
-                Tranferencia bancaria
-              </label>
-            </div>
-        </form>
-        <br>
-        <div class="resumen">
-              <div id="resumen" class="col-3 centrado">
-                <h5>Resumen de tu compra</h5>
-                <hr>
-                <p>Subtotal:</p>
-                <hr>
-                <p>Total a pagar:</p>
-                <p id="total"></p>
-              </div>
-              <div class="centrado">
-                <br><button id="botonComprar" class="btn btn-primary">Finalizar compra</button>
-              </div>
-            </div>
-        </div>
-    </div>
-  
-  </main> -->
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">
         <a href="#">Volver arriba</a>
       </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
+      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jóvenes a Programar</a></p>
     </div>
   </footer>
   <div id="spinner-wrapper">
@@ -323,6 +191,7 @@
   <script src="js/cart.js"></script>
   <script src="js/autenticacion.js"></script>
   <script src="js/darkMode.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   
 
 </body>
