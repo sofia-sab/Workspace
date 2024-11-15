@@ -9,7 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
         if (formProfile.checkValidity()) {
             saveProfileData();
-            alert('Perfil actualizado con éxito');
+            Swal.fire('Perfil actualizado con éxito');
+            
         } else {
             formProfile.reportValidity();
         }

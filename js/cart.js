@@ -249,7 +249,7 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 // Tabs 
-// Escuchar el evento click en el botón "Comprar"
+
 document.getElementById("botonComprar").addEventListener("click", () => {
     var direccionTab = new bootstrap.Tab(document.getElementById("nav-direccion-tab"));
     direccionTab.show();
@@ -300,6 +300,7 @@ document.getElementById("btnIrAPagar").addEventListener("click", (event) => {
 
     // Si hay errores, no enviar el formulario ni cambiar de pestaña
     if (error) {
+        Swal.fire("Por favor, complete todos los campos antes de continuar");
         return;
     }
 
@@ -308,80 +309,29 @@ document.getElementById("btnIrAPagar").addEventListener("click", (event) => {
     facturacionTab.show();
 });
 
-
-// document.getElementById("botonComprar").addEventListener("click", () => {
-//     var direccionTab = new bootstrap.Tab(document.getElementById("nav-direccion-tab"));
-//     direccionTab.show();
-// });
-
-// document.getElementById("btnIrAPagar").addEventListener("click", (event) => {
-//     event.preventDefault();
-//     document.getElementById('form-dirección').addEventListener('submit', ()=> { 
-//         const formDireccion = document.getElementById('form-direccion');
-//         const departamento = document.getElementById('departamento');
-//         const localidad = document.getElementById('localidad');
-//         const calle = document.getElementById("calle");
-//         const esquina = document.getElementById('esquina');
-//         const numero = document.getElementById('numero');
-//         const standard = document.getElementById('standard');
-//         const express = document.getElementById('express');
-//         const premium = document.getElementById('premium');
-//         if(formDireccion){
-//             if (calle.value === ""){
-//                 alert('Por favor, complete este campo');
-//             } 
-//             if (esquina.value===""){
-//                 alert('Por favor, complete este campo');
-//             }
-//             if (numero.value===""){
-//                 alert('Por favor, complete este campo');
-//             }
-//             if (departamento.value===""){
-//                 alert('Por favor, complete este campo')
-//             }
-//             if (localidad.value===""){
-//                 alert('Por favor, complete este campo')
-//             }
-//             if (!standard.value || !express.value || !premium.value){
-//                 alert('Por favor, complete este campo')
-//             }
-//         } else {
-//             var facturacionTab = new bootstrap.Tab(document.getElementById("nav-facturacion-tab"));
-//             facturacionTab.show();
-//         } 
-//         });
-
-// });
-
-
-// document.getElementById('form-dirección').addEventListener('submit', ()=> { 
+//Intento de validacion de el tab de Facturacion
+document.getElementById("btn-finalizarCompra").addEventListener("click", (event) => { 
+    event.preventDefault();  
+    const tCredito = document.getElementById('tCredito');
+    const tBancaria = document.getElementById('tBancaria');
     
-// const departamento = document.getElementById('departamento');
-// const localidad = document.getElementById('localidad');
-// const calle = document.getElementById("calle");
-// const esquina = document.getElementById('esquina');
-// const numero = document.getElementById('numero');
-// const standard = document.getElementById('standard');
-// const express = document.getElementById('express');
-// const premium = document.getElementById('premium');
-
-//     if (calle.value === ""){
-//         alert('Por favor, complete este campo');
-//     } 
-//     if (esquina.value===""){
-//         alert('Por favor, complete este campo');
-//     }
-//     if (numero.value===""){
-//         alert('Por favor, complete este campo');
-//     }
-//     if (departamento.value===""){
-//         alert('Por favor, complete este campo')
-//     }
-//     if (localidad.value===""){
-//         alert('Por favor, complete este campo')
-//     }
-//     if (!standard.value || !express.value || !premium.value){
-//         alert('Por favor, complete este campo')
-//     }
+    let error = false;
+    if (!tCredito.checked && !tBancaria.checked) {
+        if (tCredito) standard.classList.add("is-invalid");
+        if (tBancaria) express.classList.add("is-invalid");
+        error=true;
+    }
+    if (error){
+        Swal.fire("Por favor, complete todos los campos antes de continuar");
+    }else {
+        Swal.fire({
+            title: "Compra exitosa",
+            text: "Su compra ha sido realizada exitosamente",
+            icon: "success"
+        });
+        var carritoTab = new bootstrap.Tab(document.getElementById("nav-carrito-tab"));
+        carritoTab.show();
+}});
     
-// });
+    
+      
