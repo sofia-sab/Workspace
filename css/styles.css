@@ -367,7 +367,7 @@ color: white;
   font-weight: bold;
 }
 
-#resumen{
+.resumen-content{
   background-color:ghostwhite;
   width: 250px;
   height: 200px;
