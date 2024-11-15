@@ -35,12 +35,13 @@ document.addEventListener('DOMContentLoaded', function() {
 function showCart() {
     const userCart = JSON.parse(localStorage.getItem('userCart'));
     const contenedorCarrito = document.getElementById('productoComprar');
-    const totalGeneral = document.getElementById('total'); 
+    const totalGeneral = document.querySelectorAll('.total'); 
     const botonComprar = document.getElementById('botonComprar'); // se declara para ocultar el boton, en caso de que no existan productos
     const carrito = document.getElementById('carrito');
     const badge = document.getElementById('badge');
     const myTab = document.getElementById('myTab');
-    const resumen = document.getElementById('resumen');
+    const resumen = document.querySelectorAll('.resumen');
+
     // const navTab = document.getElementById('nav-tab');
     // const navCarritoTab = document.getElementById('nav-carrito-tab');
     // const navDireccionTab = document.getElementById('nav-direccion-tab');
@@ -86,8 +87,11 @@ function showCart() {
 
         });
 
-        totalGeneral.textContent = `Total: UYU ${total}`; // Muestra el total
+        totalGeneral.forEach(element => {
+            element.textContent = `Total: UYU ${total}`;
+        });
         document.getElementById('badge').textContent = `${totalCantidad}`;
+        localStorage.setItem('precioTotal', total); // Almacena el total en localStorage
     } else {
         contenedorCarrito.innerHTML = `
         <div class="alert alert-danger text-center" role="alert">
