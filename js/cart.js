@@ -39,8 +39,8 @@ function showCart() {
     const botonComprar = document.getElementById('botonComprar'); // se declara para ocultar el boton, en caso de que no existan productos
     const carrito = document.getElementById('carrito');
     const badge = document.getElementById('badge');
-    const myTab = document.getElementById('myTab');
-    const resumen = document.querySelectorAll('.resumen');
+    const navs = document.getElementById('nav-tab');
+    const resumenInicial = document.getElementById('resumenRe');
     
 
     contenedorCarrito.innerHTML = '';
@@ -95,11 +95,10 @@ function showCart() {
         botonComprar.style.display = 'none'; // Oculta el boton de comprar si no tenemos productos en el carrito
         carrito.style.display = 'none';
         badge.style.display = 'none';
-        document.getElementById('total').textContent = ``;
-        myTab.style.display = 'none';
-        resumen.style.display = 'none';
-
-
+        document.querySelectorAll('.total').textContent = ``;
+        navs.style.display = 'none';
+        resumenInicial.style.display = 'none';
+        
     }
 }
 
@@ -345,6 +344,7 @@ document.getElementById("btn-finalizarCompra").addEventListener("click", (event)
             icon: "success"
         });
         localStorage.removeItem('userCart');
+        showCart();
         
         var carritoTab = new bootstrap.Tab(document.getElementById("nav-carrito-tab"));
         carritoTab.show();
