@@ -356,25 +356,25 @@ function costoDeEnvio() {
     const express = document.getElementById('express');
     const premium = document.getElementById('premium');
     const costoDeEnvioElement = document.getElementById('costoDeEnvio');
-    const totalElement = document.getElementById('total'); // Asegúrate de que este ID se corresponda con el elemento que muestra el total
+    const subtotalElement = document.getElementById('subtotal');
     const totalAPagarElement = document.getElementById('totalAPagar');
 
-    // Obtener el total de la compra desde el elemento HTML (que muestra el total)
-    const subtotal = parseFloat(totalElement.textContent.replace('Total: UYU ', '').trim()); // Elimina 'Total: UYU' y convierte a número
+    // Obtener el total de la compra desde el elemento HTML (que muestra el subtotal)
+    const subtotal = parseFloat(subtotalElement.textContent.replace('Subtotal: UYU ', '').trim());
 
     let costoEnvio = 0;
 
     // Calcular el costo de envío según el tipo seleccionado
     if (standard.checked) {
-        costoEnvio = subtotal * 0.05; 
+        costoEnvio = subtotal * 0.05;
     } else if (express.checked) {
-        costoEnvio = subtotal * 0.07; 
+        costoEnvio = subtotal * 0.07;
     } else if (premium.checked) {
-        costoEnvio = subtotal * 0.15; 
+        costoEnvio = subtotal * 0.15;
     }
 
     // Actualizar el valor del costo de envío
-    costoDeEnvioElement.textContent = `Envío: UYU ${costoEnvio.toFixed(2)}`;
+    costoDeEnvioElement.textContent = `Costo de envio: UYU ${costoEnvio.toFixed(2)}`;
 
     // Actualizar el total a pagar sumando el subtotal y el costo de envío
     const totalAPagar = subtotal + costoEnvio;
@@ -388,7 +388,7 @@ document.addEventListener('DOMContentLoaded', function() {
         totalElements.forEach(element => {
             element.textContent = `Subtotal: UYU ${precioGuardado}`;
         });
-        document.getElementById('total').textContent = `Subtotal: UYU ${precioGuardado}`;
+        document.getElementById('subtotal').textContent = `Subtotal: UYU ${precioGuardado}`;
     }
     costoDeEnvio(); // Calcular el costo de envío al cargar la página
 
@@ -397,6 +397,5 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('express').addEventListener('change', costoDeEnvio);
     document.getElementById('premium').addEventListener('change', costoDeEnvio);
 });
-
-    
+  
 // function totalConEnvio
