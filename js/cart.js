@@ -134,7 +134,7 @@ function subtotalActualizado(articleID) {
         document.getElementById(`subtotal-${articleID}`).textContent = `${article.currency}${article.subtotal}`;
         localStorage.setItem('userCart', JSON.stringify(userCart)); 
         calcularTotal(userCart); // Llama a calcularTotal para actualizar el total
-        badge();
+        // badge();
     }
 }
 
@@ -151,7 +151,19 @@ function calcularTotal(cart) {
         }
         total += subtotalActual;
     });
-    document.querySelectorAll('total').textContent = `Total: UYU ${total}`; 
+    // document.querySelectorAll('total').textContent = `Total: UYU ${total}`;
+    
+    const totalElements = document.querySelectorAll('.total');
+    totalElements.forEach(element => {
+        element.textContent = `Subtotal: UYU ${total}`;
+    });
+
+     document.getElementById('total').textContent = `Subtotal: UYU ${total}`;
+    localStorage.setItem('precioTotal', total); // Almacena el total en localStorage
+
+    // Actualizar el costo de envío y el total a pagar
+    costoDeEnvio();
+
 }
 
 function eliminarProducto(articleID) {
@@ -345,28 +357,40 @@ function costoDeEnvio() {
     const premium = document.getElementById('premium');
     const costoDeEnvioElement = document.getElementById('costoDeEnvio');
     const totalElement = document.getElementById('total'); // Asegúrate de que este ID se corresponda con el elemento que muestra el total
+    const totalAPagarElement = document.getElementById('totalAPagar');
 
     // Obtener el total de la compra desde el elemento HTML (que muestra el total)
-    const totalCompra = parseFloat(totalElement.textContent.replace('Total: UYU ', '').trim()); // Elimina 'Total: UYU' y convierte a número
+    const subtotal = parseFloat(totalElement.textContent.replace('Total: UYU ', '').trim()); // Elimina 'Total: UYU' y convierte a número
 
     let costoEnvio = 0;
 
     // Calcular el costo de envío según el tipo seleccionado
     if (standard.checked) {
-        costoEnvio = totalCompra * 0.05; 
+        costoEnvio = subtotal * 0.05; 
     } else if (express.checked) {
-        costoEnvio = totalCompra * 0.07; 
+        costoEnvio = subtotal * 0.07; 
     } else if (premium.checked) {
-        costoEnvio = totalCompra * 0.15; 
+        costoEnvio = subtotal * 0.15; 
     }
 
     // Actualizar el valor del costo de envío
-    costoDeEnvioElement.innerHTML = `Envío: UYU ${costoEnvio}`; // Mostrar el costo con 2 decimales
+    costoDeEnvioElement.textContent = `Envío: UYU ${costoEnvio.toFixed(2)}`;
+
+    // Actualizar el total a pagar sumando el subtotal y el costo de envío
+    const totalAPagar = subtotal + costoEnvio;
+    totalAPagarElement.textContent = `Total a pagar: UYU ${totalAPagar.toFixed(2)}`;
 }
 
-// Llamar a costoDeEnvio cuando el documento esté listo
-document.addEventListener('DOMContentLoaded', function () {
-    costoDeEnvio(); // Actualizar el costo de envío al cargar la página
+document.addEventListener('DOMContentLoaded', function() {
+    const precioGuardado = localStorage.getItem('precioTotal');
+    if (precioGuardado) {
+        const totalElements = document.querySelectorAll('.total');
+        totalElements.forEach(element => {
+            element.textContent = `Subtotal: UYU ${precioGuardado}`;
+        });
+        document.getElementById('total').textContent = `Subtotal: UYU ${precioGuardado}`;
+    }
+    costoDeEnvio(); // Calcular el costo de envío al cargar la página
 
     // Llamar a la función cada vez que se cambie la opción de envío
     document.getElementById('standard').addEventListener('change', costoDeEnvio);
